@@ -257,7 +257,7 @@ figure.source-art figcaption {
 
 
 .exam-question { margin: 18px 0; padding: 12px; background: #fff; border-radius: 8px; border: 1px solid #e0e0e0; }
-.exam-question legend.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+legend.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 .exam-legend { font-weight: 700; margin-bottom: 8px; }
 .exam-feedback { margin-top: 8px; padding: 8px 10px; border-radius: 6px; font-size: 0.9rem; display: none; }
 .exam-feedback.show { display: block; background: #f5f5f5; }
@@ -1395,21 +1395,24 @@ figure.source-art figcaption {
 
 <form data-quiz="q1">
   <fieldset class="quiz-question" data-q="1">
-    <legend><span class="en-text">1. When should you let someone else drive instead of driving yourself?</span><span class="bn-text">১. কখন নিজে চালানো বদলে অন্য কাউকে গাড়ি চালাতে দেবেন?</span></legend>
+    <legend class="sr-only">Question 1</legend>
+<div class="exam-legend"><span class="en-text">1. When should you let someone else drive instead of driving yourself?</span><span class="bn-text">১. কখন নিজে চালানো বদলে অন্য কাউকে গাড়ি চালাতে দেবেন?</span></div>
     <label class="quiz-option"><input type="radio" name="q1-q1" value="a"> <span class="en-text">When you are not feeling well.</span><span class="bn-text">যখন আপনি অসুস্থ বোধ করেন।</span></label>
     <label class="quiz-option"><input type="radio" name="q1-q1" value="b"> <span class="en-text">Whenever your friend asks.</span><span class="bn-text">যখন আপনার বন্ধু অনুগ্রহ করে।</span></label>
     <div class="quiz-feedback" id="feedback-q1-1"></div>
   </fieldset>
 
   <fieldset class="quiz-question" data-q="2">
-    <legend><span class="en-text">2. What is the main goal of the Washington Driver Guide?</span><span class="bn-text">২. ওয়াশিংটন ড্রাইভার গাইডের প্রধান লক্ষ্য কী?</span></legend>
+    <legend class="sr-only">Question 2</legend>
+<div class="exam-legend"><span class="en-text">2. What is the main goal of the Washington Driver Guide?</span><span class="bn-text">২. ওয়াশিংটন ড্রাইভার গাইডের প্রধান লক্ষ্য কী?</span></div>
     <label class="quiz-option"><input type="radio" name="q1-q2" value="a"> <span class="en-text">To help you become a safe, licensed driver.</span><span class="bn-text">আপনাকে একটি নিরাপদ, লাইসেন্সপ্রাপ্ত ড্রাইভার হতে সাহায্য করা।</span></label>
     <label class="quiz-option"><input type="radio" name="q1-q2" value="b"> <span class="en-text">To teach you how to speed safely.</span><span class="bn-text">আপনাকে নিরাপদে গতি বাড়াতে শেখানো।</span></label>
     <div class="quiz-feedback" id="feedback-q1-2"></div>
   </fieldset>
 
   <fieldset class="quiz-question" data-q="3">
-    <legend><span class="en-text">3. Which of these is NOT a reason to slow down near an emergency scene?</span><span class="bn-text">৩. জরুরি ঘটনাস্থলের কাছে গতি কমানোর কারণ কোনটি নয়?</span></legend>
+    <legend class="sr-only">Question 3</legend>
+<div class="exam-legend"><span class="en-text">3. Which of these is NOT a reason to slow down near an emergency scene?</span><span class="bn-text">৩. জরুরি ঘটনাস্থলের কাছে গতি কমানোর কারণ কোনটি নয়?</span></div>
     <label class="quiz-option"><input type="radio" name="q1-q3" value="a"> <span class="en-text">To protect emergency workers.</span><span class="bn-text">জরুরী কর্মীদের রক্ষা করা।</span></label>
     <label class="quiz-option"><input type="radio" name="q1-q3" value="b"> <span class="en-text">To get to your destination faster.</span><span class="bn-text">আপনার গন্তব্যে দ্রুত পৌঁছানো।</span></label>
     <div class="quiz-feedback" id="feedback-q1-3"></div>
@@ -1536,21 +1539,24 @@ figure.source-art figcaption {
 
 <form data-quiz="q2">
   <fieldset class="quiz-question" data-q="1">
-    <legend><span class="en-text">1. What are the recommended hand positions on the steering wheel?</span><span class="bn-text">১. স্টিয়ারিং হুইলে সুপারিশকৃত হাতের অবস্থান কী?</span></legend>
+    <legend class="sr-only">Question 1</legend>
+<div class="exam-legend"><span class="en-text">1. What are the recommended hand positions on the steering wheel?</span><span class="bn-text">১. স্টিয়ারিং হুইলে সুপারিশকৃত হাতের অবস্থান কী?</span></div>
     <label class="quiz-option"><input type="radio" name="q2-q1" value="a"> <span class="en-text">10 and 2</span><span class="bn-text">১০ ও ২</span></label>
     <label class="quiz-option"><input type="radio" name="q2-q1" value="b"> <span class="en-text">1 and 11</span><span class="bn-text">১ ও ১১</span></label>
     <div class="quiz-feedback" id="feedback-q2-1"></div>
   </fieldset>
 
   <fieldset class="quiz-question" data-q="2">
-    <legend><span class="en-text">2. Which braking level should you use for normal driving?</span><span class="bn-text">২. স্বাভাবিক ড্রাইভিংয়ের জন্য কোন ব্রেকিং স্তর ব্যবহার করবেন?</span></legend>
+    <legend class="sr-only">Question 2</legend>
+<div class="exam-legend"><span class="en-text">2. Which braking level should you use for normal driving?</span><span class="bn-text">২. স্বাভাবিক ড্রাইভিংয়ের জন্য কোন ব্রেকিং স্তর ব্যবহার করবেন?</span></div>
     <label class="quiz-option"><input type="radio" name="q2-q2" value="a"> <span class="en-text">Emergency braking</span><span class="bn-text">জরুরী ব্রেকিং</span></label>
     <label class="quiz-option"><input type="radio" name="q2-q2" value="b"> <span class="en-text">Light to medium braking</span><span class="bn-text">হালকা থেকে মাঝারি ব্রেকিং</span></label>
     <div class="quiz-feedback" id="feedback-q2-2"></div>
   </fieldset>
 
   <fieldset class="quiz-question" data-q="3">
-    <legend><span class="en-text">3. What should you imagine to help with smooth acceleration?</span><span class="bn-text">৩. মসৃণ ত্বরন্বিত করতে সাহায্য করতে আপনি কী কল্পনা করবেন?</span></legend>
+    <legend class="sr-only">Question 3</legend>
+<div class="exam-legend"><span class="en-text">3. What should you imagine to help with smooth acceleration?</span><span class="bn-text">৩. মসৃণ ত্বরন্বিত করতে সাহায্য করতে আপনি কী কল্পনা করবেন?</span></div>
     <label class="quiz-option"><input type="radio" name="q2-q3" value="a"> <span class="en-text">A cup of water in your lap that you don’t want to spill.</span><span class="bn-text">আপনার কোলে একটি কাপ জল যা আপনি ছিটাতে চান না।</span></label>
     <label class="quiz-option"><input type="radio" name="q2-q3" value="b"> <span class="en-text">A race car on a straight track.</span><span class="bn-text">সোজা ট্র্যাকে একটি রেসিং গাড়ি।</span></label>
     <div class="quiz-feedback" id="feedback-q2-3"></div>
@@ -1605,14 +1611,14 @@ figure.source-art figcaption {
 <p class="en-text">Your physical health is a priority. It directly impacts your ability to be a safe and effective driver. Before getting behind the wheel, ensure you’re in good health and not impaired by alcohol or other drugs.</p><p class="bn-text">আপনার শারীরিক স্বাস্থ্য একটি অগ্রাধিকার। এটি সরাসরি আপনাকে একটি নিরাপদ ও কার্যকর ড্রাইভার হওয়ার ক্ষমতাকে প্রভাবিত করে। গাড়ির পিছনে বসতে আগে, নিশ্চিত হন আপনার স্বাস্থ্য ভাল আছে এবং অ্যালকোহল বা অন্যান্য মাদক দ্বারা প্রভাবিত নই।</p>
 <h3 class="en-text">VISION</h3><h3 class="bn-text">দৃষ্টি</h3>
 <p class="en-text">Good vision is so important for safe driving that the law requires you to pass a vision test before you get your driver license. If you can’t see clearly, you will have trouble identifying traffic hazards and responding to problems. Seeing well is important to safe driving.</p><p class="bn-text">ভাল দৃষ্টি নিরাপদ ড্রাইভিংয়ের জন্য এত গুরুত্বপূর্ণ যে আইন আপনার ড্রাইভার লাইসেন্স পাওয়ার আগে দৃষ্টি পরীক্ষা পাস করতে বলে। পরিষ্কার দেখতে না পারলে ট্রাফিকের হাজারো আশংকা চেনা ও সমস্যা মোকাবিলা করতে কষ্ট হবে। ভাল দৃষ্টি নিরাপদ ড্রাইভিংয়ের জন্য গুরুত্বপূর্ণ।</p>
-<p class="en-text">If you are required to wear corrective lenses:</p><p class="bn-text">যদি আপনার দৃষ্টি সংশোধন করা লেন্স পরপরipheral আচরণ করতে হয়:</p>
+<p class="en-text">If you are required to wear corrective lenses:</p><p class="bn-text">আপনার যদি সংশোধনমূলক লেন্স পরা প্রয়োজন হয়:</p>
 <ul class="en-text">
 <li>Always wear them when driving.</li>
 <li>Avoid using dark or tinted corrective lenses at night.</li>
 </ul>
 <ul class="bn-text">
 <li>ড্রাইভিং করাকালীন এগুলো সবসময় পরুন।</li>
-<li>রাতে গাdark বা tinted কোরেকটিভ লেন্স ব্যবহার এড়িয়ে চলুন।</li>
+<li>রাতে গাঢ় বা রঙিন সংশোধনমূলক লেন্স ব্যবহার এড়িয়ে চলুন।</li>
 </ul>
 <p class="en-text">Important aspects of vision are:</p><p class="bn-text">দৃষ্টির গুরুত্বপূর্ণ দিকগুলি:</p>
 <ul class="en-text">
@@ -1620,7 +1626,7 @@ figure.source-art figcaption {
 <li>Judging distance and speed. Being able to see well helps you determine how far away you are from other vehicles, pedestrians, and other hazards.</li>
 </ul>
 <ul class="bn-text">
-<li>Paripacchedriy drishti. আপনি still ahead দিয়ে তাকiao থাকাকালীন আপনার চোখের কোণ থেকে গাড়ি ও অন্যান্য সম্ভাব্য সমস্যা চেনতে পারেন।</li>
+<li>পার্শ্বদৃষ্টি। সামনে তাকিয়ে থাকা অবস্থাতেও আপনি চোখের কোণ দিয়ে অন্যান্য যানবাহন ও সম্ভাব্য বিপদ শনাক্ত করতে পারেন।</li>
 <li>দূরত্ব ও গতি নির্ধারণ করা। ভাল দৃষ্টি থাকলে আপনি অন্যান্য গাড়ি, পথচারী ও অন্যান্য হযার焊 থেকে yourself কতদূরে এ তা নির্ধারণ করতে পারেন।</li>
 </ul>
 <h3 class="en-text">SEEING AT NIGHT</h3><h3 class="bn-text">রাতে দেখা</h3>
@@ -1667,21 +1673,24 @@ figure.source-art figcaption {
 
 <form data-quiz="q3">
   <fieldset class="quiz-question" data-q="1">
-    <legend><span class="en-text">1. What should you check inside your vehicle before driving?</span><span class="bn-text">১. গাড়ি চালানোর আগে আপনি আপনার গাড়ির ভিতরে কী পরীক্ষা করবেন?</span></legend>
+    <legend class="sr-only">Question 1</legend>
+<div class="exam-legend"><span class="en-text">1. What should you check inside your vehicle before driving?</span><span class="bn-text">১. গাড়ি চালানোর আগে আপনি আপনার গাড়ির ভিতরে কী পরীক্ষা করবেন?</span></div>
     <label class="quiz-option"><input type="radio" name="q3-q1" value="a"> <span class="en-text">Warnings on the instrument panel, window clarity, and loose items.</span><span class="bn-text">ইনস্ট্রুমেন্ট প্যানেলের সতর্কতা, জানালার স্বচ্ছতা, এবং আলগা আইটেম।</span></label>
     <label class="quiz-option"><input type="radio" name="q3-q1" value="b"> <span class="en-text">Only the fuel level.</span><span class="bn-text">শুধু জ্বালানির মাত্রা।</span></label>
     <div class="quiz-feedback" id="feedback-q3-1"></div>
   </fieldset>
 
   <fieldset class="quiz-question" data-q="2">
-    <legend><span class="en-text">2. Why is physical health important for driving?</span><span class="bn-text">২. গাড়ি চালানোর জন্য শারীরিক স্বাস্থ্য কেন গুরুত্বপূর্ণ?</span></legend>
+    <legend class="sr-only">Question 2</legend>
+<div class="exam-legend"><span class="en-text">2. Why is physical health important for driving?</span><span class="bn-text">২. গাড়ি চালানোর জন্য শারীরিক স্বাস্থ্য কেন গুরুত্বপূর্ণ?</span></div>
     <label class="quiz-option"><input type="radio" name="q3-q2" value="a"> <span class="en-text">It directly impacts your ability to be a safe driver.</span><span class="bn-text">এটি সরাসরি আপনাকে একটি নিরাপদ ড্রাইভার হওয়ার ক্ষমতাকে প্রভাবিত করে।</span></label>
     <label class="quiz-option"><input type="radio" name="q3-q2" value="b"> <span class="en-text">It only matters if you have a cold.</span><span class="bn-text">এটি শুধু তখনই বিষয় যখন আপনার ঠান্ডা আছে।</span></label>
     <div class="quiz-feedback" id="feedback-q3-2"></div>
   </fieldset>
 
   <fieldset class="quiz-question" data-q="3">
-    <legend><span class="en-text">3. What should you do if you are required to wear corrective lenses?</span><span class="bn-text">৩. যদি আপনাকে দৃষ্টি সংশোধন লেন্স পরা দরকার হয়, কী করবেন?</span></legend>
+    <legend class="sr-only">Question 3</legend>
+<div class="exam-legend"><span class="en-text">3. What should you do if you are required to wear corrective lenses?</span><span class="bn-text">৩. যদি আপনাকে দৃষ্টি সংশোধন লেন্স পরা দরকার হয়, কী করবেন?</span></div>
     <label class="quiz-option"><input type="radio" name="q3-q3" value="a"> <span class="en-text">Always wear them when driving.</span><span class="bn-text">ড্রাইভিং করাকালীন এগুলো সবসময় পরুন।</span></label>
     <label class="quiz-option"><input type="radio" name="q3-q3" value="b"> <span class="en-text">Only wear them on sunny days.</span><span class="bn-text">শুধু রৌদ্রোজ্জ্বল দিনগুলোতে পরুন।</span></label>
     <div class="quiz-feedback" id="feedback-q3-3"></div>
@@ -4478,35 +4487,40 @@ function resetExam() {
 
 <form id="driver-quiz">
   <fieldset class="quiz-question" data-q="1">
-    <legend><span class="en-text">1. What should you do at a solid red light?</span><span class="bn-text">১. স্থির লাল বাতিতে কী করবেন?</span></legend>
+    <legend class="sr-only">Question 1</legend>
+<div class="exam-legend"><span class="en-text">1. What should you do at a solid red light?</span><span class="bn-text">১. স্থির লাল বাতিতে কী করবেন?</span></div>
     <label class="quiz-option"><input type="radio" name="q1" value="a"> <span class="en-text">Stop and wait until it is safe and legal to proceed.</span><span class="bn-text">থামুন এবং নিরাপদ ও আইনসম্মতভাবে চলার সময় পর্যন্ত অপেক্ষা করুন।</span></label>
     <label class="quiz-option"><input type="radio" name="q1" value="b"> <span class="en-text">Speed up to clear the intersection.</span><span class="bn-text">চৌরাস্তা পার হতে গতি বাড়ান।</span></label>
     <div class="quiz-feedback" id="feedback-1"></div>
   </fieldset>
 
   <fieldset class="quiz-question" data-q="2">
-    <legend><span class="en-text">2. How should you check a blind zone?</span><span class="bn-text">২. ব্লাইন্ড জোন কীভাবে পরীক্ষা করবেন?</span></legend>
+    <legend class="sr-only">Question 2</legend>
+<div class="exam-legend"><span class="en-text">2. How should you check a blind zone?</span><span class="bn-text">২. ব্লাইন্ড জোন কীভাবে পরীক্ষা করবেন?</span></div>
     <label class="quiz-option"><input type="radio" name="q2" value="a"> <span class="en-text">Use mirrors only.</span><span class="bn-text">শুধু আয়না ব্যবহার করুন।</span></label>
     <label class="quiz-option"><input type="radio" name="q2" value="b"> <span class="en-text">Check mirrors and look over your shoulder.</span><span class="bn-text">আয়না দেখুন এবং কাঁধের ওপর দিয়ে তাকান।</span></label>
     <div class="quiz-feedback" id="feedback-2"></div>
   </fieldset>
 
   <fieldset class="quiz-question" data-q="3">
-    <legend><span class="en-text">3. What is the safest response to a stopped school bus with flashing red lights?</span><span class="bn-text">৩. লাল বাতি জ্বলা থেমে থাকা স্কুল বাস দেখলে সবচেয়ে নিরাপদ কাজ কী?</span></legend>
+    <legend class="sr-only">Question 3</legend>
+<div class="exam-legend"><span class="en-text">3. What is the safest response to a stopped school bus with flashing red lights?</span><span class="bn-text">৩. লাল বাতি জ্বলা থেমে থাকা স্কুল বাস দেখলে সবচেয়ে নিরাপদ কাজ কী?</span></div>
     <label class="quiz-option"><input type="radio" name="q3" value="a"> <span class="en-text">Stop as required and watch for children.</span><span class="bn-text">আইন অনুযায়ী থামুন এবং শিশুদের দিকে নজর রাখুন।</span></label>
     <label class="quiz-option"><input type="radio" name="q3" value="b"> <span class="en-text">Pass using the center turn lane.</span><span class="bn-text">মাঝের টার্ন লেন ব্যবহার করে পাশ কাটান।</span></label>
     <div class="quiz-feedback" id="feedback-3"></div>
   </fieldset>
 
   <fieldset class="quiz-question" data-q="4">
-    <legend><span class="en-text">4. What does zipper merging mean?</span><span class="bn-text">৪. জিপার মার্জিং বলতে কী বোঝায়?</span></legend>
+    <legend class="sr-only">Question 4</legend>
+<div class="exam-legend"><span class="en-text">4. What does zipper merging mean?</span><span class="bn-text">৪. জিপার মার্জিং বলতে কী বোঝায়?</span></div>
     <label class="quiz-option"><input type="radio" name="q4" value="a"> <span class="en-text">Use both lanes and take turns merging.</span><span class="bn-text">দুই লেন ব্যবহার করে পালা করে একীভূত হওয়া।</span></label>
     <label class="quiz-option"><input type="radio" name="q4" value="b"> <span class="en-text">Move into the other lane as early as possible.</span><span class="bn-text">যত তাড়াতাড়ি সম্ভব অন্য লেনে চলে যাওয়া।</span></label>
     <div class="quiz-feedback" id="feedback-4"></div>
   </fieldset>
 
   <fieldset class="quiz-question" data-q="5">
-    <legend><span class="en-text">5. If a collision involves power lines, what should you generally do?</span><span class="bn-text">৫. সংঘর্ষে বিদ্যুৎ লাইন জড়িত হলে সাধারণত কী করবেন?</span></legend>
+    <legend class="sr-only">Question 5</legend>
+<div class="exam-legend"><span class="en-text">5. If a collision involves power lines, what should you generally do?</span><span class="bn-text">৫. সংঘর্ষে বিদ্যুৎ লাইন জড়িত হলে সাধারণত কী করবেন?</span></div>
     <label class="quiz-option"><input type="radio" name="q5" value="a"> <span class="en-text">Stay in the vehicle, call 911, and wait for instructions.</span><span class="bn-text">গাড়ির ভেতরে থাকুন, ৯১১-এ কল করুন এবং নির্দেশের অপেক্ষা করুন।</span></label>
     <label class="quiz-option"><input type="radio" name="q5" value="b"> <span class="en-text">Immediately touch the vehicle to test whether it is energized.</span><span class="bn-text">বিদ্যুৎ আছে কি না পরীক্ষা করতে সঙ্গে সঙ্গে গাড়ি স্পর্শ করুন।</span></label>
     <div class="quiz-feedback" id="feedback-5"></div>

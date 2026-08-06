@@ -86,6 +86,14 @@ for (const file of files) {
   if (!glued.length) ok('no glued-word artifacts');
   else fail('no glued-word artifacts', glued.join(', '));
 
+  // Bengali character glued directly to a Latin character with no space —
+  // a strong signal of corrupted/garbled machine translation (as opposed to
+  // a deliberately English term like "BAC" or "LifeCenter Northwest", which
+  // always has normal word boundaries around it).
+  const gluedBnEn = [...new Set(text.match(/[ঀ-৿][a-zA-Z]+|[a-zA-Z]+[ঀ-৿]/g) || [])];
+  if (!gluedBnEn.length) ok('no glued Bengali/Latin corruption');
+  else fail('no glued Bengali/Latin corruption', gluedBnEn.join(', '));
+
   // 5. table.comparison structural sanity: every table has thead+tbody, and
   //    every row has the same cell count as the header.
   const tables = [...html.matchAll(/<table class="comparison"[^>]*>([\s\S]*?)<\/table>/g)];
