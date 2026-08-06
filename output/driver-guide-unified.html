@@ -269,6 +269,10 @@ legend.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin
 .quiz-option.correct { background: #dcfce7 !important; border-color: #16a34a !important; }
 .quiz-option.incorrect { background: #fef2f2 !important; border-color: #dc2626 !important; }
 .quiz-option.disabled { opacity: 0.6; pointer-events: none; }
+.exam-callout { background: #fff7ed; border: 2px solid #f59e0b; border-radius: 10px; padding: 16px 20px; margin: 20px 0; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.exam-callout-text { font-weight: 600; color: #7c2d12; }
+.exam-callout a.exam-callout-btn { background: #f59e0b; color: #1c1917; font-weight: 700; padding: 10px 18px; border-radius: 8px; text-decoration: none; white-space: nowrap; }
+.exam-callout a.exam-callout-btn:hover { background: #d97706; }
 </style>
 </head>
 <body class="bn-mode" onload="loadProgress()">
@@ -277,6 +281,10 @@ legend.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin
 <h1 class="bn-text">ওয়াশিংটন ড্রাইভার গাইড</h1>
 <p class="en-text">Official Driver Guide</p>
 <p class="bn-text">অফিশিয়াল ড্রাইভার গাইড</p>
+<div class="exam-callout">
+  <span class="exam-callout-text"><span class="en-text">📝 Ready to test yourself? Try the full 47-question practice exam.</span><span class="bn-text">📝 নিজেকে পরীক্ষা করতে প্রস্তুত? সম্পূর্ণ ৪৭-প্রশ্নের অনুশীলন পরীক্ষাটি চেষ্টা করুন।</span></span>
+  <a class="exam-callout-btn" href="#practice-exam"><span class="en-text">Take the practice exam →</span><span class="bn-text">অনুশীলন পরীক্ষা দিন →</span></a>
+</div>
 <div class="toc">
 <h2 class="en-text">Table of Contents</h2>
 <h2 class="bn-text">সূচীপত্র</h2>
@@ -1081,6 +1089,63 @@ legend.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin
 <p class="bn-text">আপনি যখন আপনার লাইসেন্সের জন্য আবেদন করেন, তখন আপনাকে জিজ্ঞাসা করা হবে আপনি যমজ কিনা। ওয়াশিংটন স্টেট টুইন রেজিস্ট্রি গবেষণা অধ্যয়নে অংশগ্রহণ করতে আগ্রহী যমজদের জন্য। বিশ্ববিদ্যালয়গুলি লাইসেন্সিং বিভাগের সাথে যমজ হিসাবে চিহ্নিত ব্যক্তিদের সাথে যোগাযোগ করতে পারে। আপনার যদি প্রশ্ন থাকে, অনুগ্রহ করে wstwinregistry.org দেখুন।</p>
 </section>
 
+<section id="quiz-sec1" class="quiz">
+<h2 class="en-text">Quick check: Deciding to drive</h2>
+<h2 class="bn-text">দ্রুত পরীক্ষা: গাড়ি চালানোর সিদ্ধান্ত</h2>
+<p class="en-text">Answer these 3 questions based on the first chapter.</p>
+<p class="bn-text">প্রথম অধ্যায়ের উপর ভিত্তি করে এই ৩টি প্রশ্নের উত্তর দিন।</p>
+
+<button class="quiz-toggle" onclick="toggleQuiz('quiz-sec1')" aria-expanded="true">
+  <span class="en-text">Hide quiz</span>
+  <span class="bn-text">কুইজ লুকান</span>
+  <span class="quiz-toggle-icon" aria-hidden="true">▼</span>
+</button>
+<div class="quiz-body" id="quiz-sec1-body">
+
+
+<div class="quiz-header">
+  <div class="quiz-progress" id="quiz-progress-q1">Question <span id="current-q-q1">1</span> of 3</div>
+  <button type="button" class="secondary" onclick="resetQuiz('q1')" style="padding: 6px 12px; font-size: 0.85rem;">Reset</button>
+</div>
+<div class="quiz-progress-bar" aria-hidden="true"><div class="quiz-progress-fill" id="progress-fill-q1" style="width: 0%"></div></div>
+
+<form data-quiz="q1">
+  <fieldset class="quiz-question" data-q="1">
+    <legend class="sr-only">Question 1</legend>
+<div class="exam-legend"><span class="en-text">1. When should you let someone else drive instead of driving yourself?</span><span class="bn-text">১. কখন নিজে চালানো বদলে অন্য কাউকে গাড়ি চালাতে দেবেন?</span></div>
+    <label class="quiz-option"><input type="radio" name="q1-q1" value="a"> <span class="en-text">When you are not feeling well.</span><span class="bn-text">যখন আপনি অসুস্থ বোধ করেন।</span></label>
+    <label class="quiz-option"><input type="radio" name="q1-q1" value="b"> <span class="en-text">Whenever your friend asks.</span><span class="bn-text">যখন আপনার বন্ধু অনুগ্রহ করে।</span></label>
+    <div class="quiz-feedback" id="feedback-q1-1"></div>
+  </fieldset>
+
+  <fieldset class="quiz-question" data-q="2">
+    <legend class="sr-only">Question 2</legend>
+<div class="exam-legend"><span class="en-text">2. What is the main goal of the Washington Driver Guide?</span><span class="bn-text">২. ওয়াশিংটন ড্রাইভার গাইডের প্রধান লক্ষ্য কী?</span></div>
+    <label class="quiz-option"><input type="radio" name="q1-q2" value="a"> <span class="en-text">To help you become a safe, licensed driver.</span><span class="bn-text">আপনাকে একটি নিরাপদ, লাইসেন্সপ্রাপ্ত ড্রাইভার হতে সাহায্য করা।</span></label>
+    <label class="quiz-option"><input type="radio" name="q1-q2" value="b"> <span class="en-text">To teach you how to speed safely.</span><span class="bn-text">আপনাকে নিরাপদে গতি বাড়াতে শেখানো।</span></label>
+    <div class="quiz-feedback" id="feedback-q1-2"></div>
+  </fieldset>
+
+  <fieldset class="quiz-question" data-q="3">
+    <legend class="sr-only">Question 3</legend>
+<div class="exam-legend"><span class="en-text">3. Which of these is NOT a reason to slow down near an emergency scene?</span><span class="bn-text">৩. জরুরি ঘটনাস্থলের কাছে গতি কমানোর কারণ কোনটি নয়?</span></div>
+    <label class="quiz-option"><input type="radio" name="q1-q3" value="a"> <span class="en-text">To protect emergency workers.</span><span class="bn-text">জরুরী কর্মীদের রক্ষা করা।</span></label>
+    <label class="quiz-option"><input type="radio" name="q1-q3" value="b"> <span class="en-text">To get to your destination faster.</span><span class="bn-text">আপনার গন্তব্যে দ্রুত পৌঁছানো।</span></label>
+    <div class="quiz-feedback" id="feedback-q1-3"></div>
+  </fieldset>
+
+  <div class="quiz-actions">
+    <button type="button" onclick="checkQuiz('q1', 3)"><span class="en-text">Check answers</span><span class="bn-text">উত্তর যাচাই করুন</span></button>
+    <button type="button" class="secondary" onclick="showExplanation('q1')"><span class="en-text">Show explanations</span><span class="bn-text">ব্যাখ্যা দেখান</span></button>
+  </div>
+  <div id="quiz-result-q1" class="quiz-result" aria-live="polite"></div>
+  <div id="quiz-summary-q1" class="quiz-score-summary"></div>
+  <div id="quiz-questions-list-q1" class="quiz-questions-list" style="display:none;"></div>
+</form>
+
+</div>
+</section>
+
 <section id="sec19">
 <h2 class="en-text">2.0  |  VEHICLE SERVICES</h2>
 <h2 class="bn-text">2.0 |  যানবাহন পরিষেবা</h2>
@@ -1373,62 +1438,7 @@ legend.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin
 <p class="en-text">Practice firm or emergency braking in a large, open, and paved space. Hit the brakes hard, and feel the ABS keep the wheels from locking up.</p><p class="bn-text">একটি বড়, খোলা এবং পাকা জায়গায় দৃঢ় বা জরুরি ব্রেকিং অনুশীলন করুন স্থান ব্রেকগুলিকে জোরে আঘাত করুন, এবং অনুভব করুন ABS চাকাগুলিকে লক করা থেকে রক্ষা করে৷</p>
 </section>
 
-<section id="quiz-sec1" class="quiz">
-<h2 class="en-text">Quick check: Deciding to drive</h2>
-<h2 class="bn-text">দ্রুত পরীক্ষা: গাড়ি চালানোর সিদ্ধান্ত</h2>
-<p class="en-text">Answer these 3 questions based on the first chapter.</p>
-<p class="bn-text">প্রথম অধ্যায়ের উপর ভিত্তি করে এই ৩টি প্রশ্নের উত্তর দিন।</p>
 
-<button class="quiz-toggle" onclick="toggleQuiz('quiz-sec1')" aria-expanded="true">
-  <span class="en-text">Hide quiz</span>
-  <span class="bn-text">কুইজ লুকান</span>
-  <span class="quiz-toggle-icon" aria-hidden="true">▼</span>
-</button>
-<div class="quiz-body" id="quiz-sec1-body">
-
-
-<div class="quiz-header">
-  <div class="quiz-progress" id="quiz-progress-q1">Question <span id="current-q-q1">1</span> of 3</div>
-  <button type="button" class="secondary" onclick="resetQuiz('q1')" style="padding: 6px 12px; font-size: 0.85rem;">Reset</button>
-</div>
-<div class="quiz-progress-bar" aria-hidden="true"><div class="quiz-progress-fill" id="progress-fill-q1" style="width: 0%"></div></div>
-
-<form data-quiz="q1">
-  <fieldset class="quiz-question" data-q="1">
-    <legend class="sr-only">Question 1</legend>
-<div class="exam-legend"><span class="en-text">1. When should you let someone else drive instead of driving yourself?</span><span class="bn-text">১. কখন নিজে চালানো বদলে অন্য কাউকে গাড়ি চালাতে দেবেন?</span></div>
-    <label class="quiz-option"><input type="radio" name="q1-q1" value="a"> <span class="en-text">When you are not feeling well.</span><span class="bn-text">যখন আপনি অসুস্থ বোধ করেন।</span></label>
-    <label class="quiz-option"><input type="radio" name="q1-q1" value="b"> <span class="en-text">Whenever your friend asks.</span><span class="bn-text">যখন আপনার বন্ধু অনুগ্রহ করে।</span></label>
-    <div class="quiz-feedback" id="feedback-q1-1"></div>
-  </fieldset>
-
-  <fieldset class="quiz-question" data-q="2">
-    <legend class="sr-only">Question 2</legend>
-<div class="exam-legend"><span class="en-text">2. What is the main goal of the Washington Driver Guide?</span><span class="bn-text">২. ওয়াশিংটন ড্রাইভার গাইডের প্রধান লক্ষ্য কী?</span></div>
-    <label class="quiz-option"><input type="radio" name="q1-q2" value="a"> <span class="en-text">To help you become a safe, licensed driver.</span><span class="bn-text">আপনাকে একটি নিরাপদ, লাইসেন্সপ্রাপ্ত ড্রাইভার হতে সাহায্য করা।</span></label>
-    <label class="quiz-option"><input type="radio" name="q1-q2" value="b"> <span class="en-text">To teach you how to speed safely.</span><span class="bn-text">আপনাকে নিরাপদে গতি বাড়াতে শেখানো।</span></label>
-    <div class="quiz-feedback" id="feedback-q1-2"></div>
-  </fieldset>
-
-  <fieldset class="quiz-question" data-q="3">
-    <legend class="sr-only">Question 3</legend>
-<div class="exam-legend"><span class="en-text">3. Which of these is NOT a reason to slow down near an emergency scene?</span><span class="bn-text">৩. জরুরি ঘটনাস্থলের কাছে গতি কমানোর কারণ কোনটি নয়?</span></div>
-    <label class="quiz-option"><input type="radio" name="q1-q3" value="a"> <span class="en-text">To protect emergency workers.</span><span class="bn-text">জরুরী কর্মীদের রক্ষা করা।</span></label>
-    <label class="quiz-option"><input type="radio" name="q1-q3" value="b"> <span class="en-text">To get to your destination faster.</span><span class="bn-text">আপনার গন্তব্যে দ্রুত পৌঁছানো।</span></label>
-    <div class="quiz-feedback" id="feedback-q1-3"></div>
-  </fieldset>
-
-  <div class="quiz-actions">
-    <button type="button" onclick="checkQuiz('q1', 3)"><span class="en-text">Check answers</span><span class="bn-text">উত্তর যাচাই করুন</span></button>
-    <button type="button" class="secondary" onclick="showExplanation('q1')"><span class="en-text">Show explanations</span><span class="bn-text">ব্যাখ্যা দেখান</span></button>
-  </div>
-  <div id="quiz-result-q1" class="quiz-result" aria-live="polite"></div>
-  <div id="quiz-summary-q1" class="quiz-score-summary"></div>
-  <div id="quiz-questions-list-q1" class="quiz-questions-list" style="display:none;"></div>
-</form>
-
-</div>
-</section>
 
 <section id="sec28">
 <h2 class="en-text">2.9  |  ACCELERATING</h2>
@@ -2370,6 +2380,63 @@ legend.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin
 <h3 class="en-text">LIGHTS</h3><h3 class="bn-text">আলো</h3>
 <p class="en-text">Your lights. Give motorcyclists plenty of time to notice your turn signals and brake lights.</p><p class="bn-text">তোমার আলো। আপনার লক্ষ্য করার জন্য মোটরসাইকেল চালকদের প্রচুর সময় দিন টার্ন সিগন্যাল এবং ব্রেক লাইট।</p>
 <p class="en-text">Motorcyclists’ lights. When slowing down, motorcyclists might use the throttle and not their brakes, so brake lights wouldn’t be visible. Additionally, some motorcycles don’t have turn signals that turn off automatically. Make sure you’re alert and paying careful attention when driving alongside a motorcycle.For more information about riding motorcycles, visit dol.wa.gov and search for motorcycle operator manual.</p><p class="bn-text">মোটরসাইকেল চালকদের লাইট। গতি কমানোর সময়, মোটরসাইকেল চালকরা তাদের ব্রেক নয়, থ্রোটল ব্যবহার করতে পারে, তাই ব্রেক লাইট দেখা যাবে না। উপরন্তু, কিছু মোটরসাইকেলে টার্ন সিগন্যাল নেই যা স্বয়ংক্রিয়ভাবে বন্ধ হয়ে যায়। মোটরসাইকেলের পাশাপাশি ড্রাইভ করার সময় আপনি সতর্ক এবং সতর্ক মনোযোগ দিচ্ছেন তা নিশ্চিত করুন। মোটরসাইকেল চালানো সম্পর্কে আরও তথ্যের জন্য, dol.wa.gov দেখুন এবং মোটরসাইকেল অপারেটর ম্যানুয়াল অনুসন্ধান করুন।</p>
+</section>
+
+<section id="quiz-sec46" class="quiz">
+<h2 class="en-text">Quick check: Sharing the road</h2>
+<h2 class="bn-text">দ্রুত পরীক্ষা: রাস্তা ভাগ করে নেওয়া</h2>
+<p class="en-text">Answer these 3 questions based on this chapter.</p>
+<p class="bn-text">এই অধ্যায়ের উপর ভিত্তি করে এই ৩টি প্রশ্নের উত্তর দিন।</p>
+
+<button class="quiz-toggle" onclick="toggleQuiz('quiz-sec46')" aria-expanded="true">
+  <span class="en-text">Hide quiz</span>
+  <span class="bn-text">কুইজ লুকান</span>
+  <span class="quiz-toggle-icon" aria-hidden="true">▼</span>
+</button>
+<div class="quiz-body" id="quiz-sec46-body">
+
+
+<div class="quiz-header">
+  <div class="quiz-progress" id="quiz-progress-q4">Question <span id="current-q-q4">1</span> of 3</div>
+  <button type="button" class="secondary" onclick="resetQuiz('q4')" style="padding: 6px 12px; font-size: 0.85rem;">Reset</button>
+</div>
+<div class="quiz-progress-bar" aria-hidden="true"><div class="quiz-progress-fill" id="progress-fill-q4" style="width: 0%"></div></div>
+
+<form data-quiz="q4">
+  <fieldset class="quiz-question" data-q="1">
+    <legend class="sr-only">Question 1</legend>
+<div class="exam-legend"><span class="en-text">1. What should you do when you see a pedestrian in a crosswalk?</span><span class="bn-text">১. ক্রসওয়াকে একজন পথচারী দেখলে আপনার কী করা উচিত?</span></div>
+    <label class="quiz-option"><input type="radio" name="q4-q1" value="a"> <span class="en-text">Yield the right-of-way to them.</span><span class="bn-text">তাদের অগ্রাধিকার দিন।</span></label>
+    <label class="quiz-option"><input type="radio" name="q4-q1" value="b"> <span class="en-text">Proceed if you have a green light.</span><span class="bn-text">সবুজ বাতি থাকলে এগিয়ে যান।</span></label>
+    <div class="quiz-feedback" id="feedback-q4-1"></div>
+  </fieldset>
+
+  <fieldset class="quiz-question" data-q="2">
+    <legend class="sr-only">Question 2</legend>
+<div class="exam-legend"><span class="en-text">2. What must you do when a school bus ahead has flashing red lights?</span><span class="bn-text">২. সামনে একটি স্কুল বাসের লাল বাতি জ্বলতে থাকলে আপনাকে কী করতে হবে?</span></div>
+    <label class="quiz-option"><input type="radio" name="q4-q2" value="a"> <span class="en-text">Stop, regardless of which direction you’re traveling.</span><span class="bn-text">থামুন, আপনি যেদিকেই যাচ্ছেন না কেন।</span></label>
+    <label class="quiz-option"><input type="radio" name="q4-q2" value="b"> <span class="en-text">Pass carefully at reduced speed.</span><span class="bn-text">কম গতিতে সাবধানে পাশ কাটান।</span></label>
+    <div class="quiz-feedback" id="feedback-q4-2"></div>
+  </fieldset>
+
+  <fieldset class="quiz-question" data-q="3">
+    <legend class="sr-only">Question 3</legend>
+<div class="exam-legend"><span class="en-text">3. How much of a lane is a motorcyclist entitled to?</span><span class="bn-text">৩. একজন মোটরসাইকেল চালক কতটুকু লেনের অধিকারী?</span></div>
+    <label class="quiz-option"><input type="radio" name="q4-q3" value="a"> <span class="en-text">The full lane, like any other vehicle.</span><span class="bn-text">অন্য যেকোনো যানবাহনের মতো সম্পূর্ণ লেন।</span></label>
+    <label class="quiz-option"><input type="radio" name="q4-q3" value="b"> <span class="en-text">Only half the lane, since motorcycles are smaller.</span><span class="bn-text">শুধু অর্ধেক লেন, কারণ মোটরসাইকেল ছোট।</span></label>
+    <div class="quiz-feedback" id="feedback-q4-3"></div>
+  </fieldset>
+
+  <div class="quiz-actions">
+    <button type="button" onclick="checkQuiz('q4', 3)"><span class="en-text">Check answers</span><span class="bn-text">উত্তর যাচাই করুন</span></button>
+    <button type="button" class="secondary" onclick="showExplanation('q4')"><span class="en-text">Show explanations</span><span class="bn-text">ব্যাখ্যা দেখান</span></button>
+  </div>
+  <div id="quiz-result-q4" class="quiz-result" aria-live="polite"></div>
+  <div id="quiz-summary-q4" class="quiz-score-summary"></div>
+  <div id="quiz-questions-list-q4" class="quiz-questions-list" style="display:none;"></div>
+</form>
+
+</div>
 </section>
 
 <section id="sec47">
@@ -4118,6 +4185,63 @@ legend.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin
 <p class="en-text">© Copyright 2025, Washington State Department of Licensing. All rights reserved.</p><p class="bn-text">© কপিরাইট 2025, ওয়াশিংটন স্টেট ডিপার্টমেন্ট অফ লাইসেন্সিং। অল অধিকার সংরক্ষিত।</p>
 </section>
 
+<section id="quiz-sec72" class="quiz">
+<h2 class="en-text">Quick check: Space, time, and emergencies</h2>
+<h2 class="bn-text">দ্রুত পরীক্ষা: স্থান, সময় ও জরুরি অবস্থা</h2>
+<p class="en-text">Answer these 3 questions based on this chapter.</p>
+<p class="bn-text">এই অধ্যায়ের উপর ভিত্তি করে এই ৩টি প্রশ্নের উত্তর দিন।</p>
+
+<button class="quiz-toggle" onclick="toggleQuiz('quiz-sec72')" aria-expanded="true">
+  <span class="en-text">Hide quiz</span>
+  <span class="bn-text">কুইজ লুকান</span>
+  <span class="quiz-toggle-icon" aria-hidden="true">▼</span>
+</button>
+<div class="quiz-body" id="quiz-sec72-body">
+
+
+<div class="quiz-header">
+  <div class="quiz-progress" id="quiz-progress-q5">Question <span id="current-q-q5">1</span> of 3</div>
+  <button type="button" class="secondary" onclick="resetQuiz('q5')" style="padding: 6px 12px; font-size: 0.85rem;">Reset</button>
+</div>
+<div class="quiz-progress-bar" aria-hidden="true"><div class="quiz-progress-fill" id="progress-fill-q5" style="width: 0%"></div></div>
+
+<form data-quiz="q5">
+  <fieldset class="quiz-question" data-q="1">
+    <legend class="sr-only">Question 1</legend>
+<div class="exam-legend"><span class="en-text">1. What is the recommended following distance under normal conditions?</span><span class="bn-text">১. স্বাভাবিক পরিস্থিতিতে সুপারিশকৃত অনুসরণ দূরত্ব কত?</span></div>
+    <label class="quiz-option"><input type="radio" name="q5-q1" value="a"> <span class="en-text">At least 3 seconds.</span><span class="bn-text">অন্তত 3 সেকেন্ড।</span></label>
+    <label class="quiz-option"><input type="radio" name="q5-q1" value="b"> <span class="en-text">1 second is enough at low speeds.</span><span class="bn-text">কম গতিতে 1 সেকেন্ডই যথেষ্ট।</span></label>
+    <div class="quiz-feedback" id="feedback-q5-1"></div>
+  </fieldset>
+
+  <fieldset class="quiz-question" data-q="2">
+    <legend class="sr-only">Question 2</legend>
+<div class="exam-legend"><span class="en-text">2. You’re in a minor collision with only vehicle damage. What should you do?</span><span class="bn-text">২. আপনি একটি সামান্য সংঘর্ষে জড়িয়েছেন যেখানে শুধু যানবাহনের ক্ষতি হয়েছে। আপনার কী করা উচিত?</span></div>
+    <label class="quiz-option"><input type="radio" name="q5-q2" value="a"> <span class="en-text">Exchange information and file a collision report if required.</span><span class="bn-text">তথ্য বিনিময় করুন এবং প্রয়োজন হলে সংঘর্ষ রিপোর্ট দাখিল করুন।</span></label>
+    <label class="quiz-option"><input type="radio" name="q5-q2" value="b"> <span class="en-text">Drive away if the other driver doesn’t seem upset.</span><span class="bn-text">অন্য চালককে বিরক্ত মনে না হলে চলে যান।</span></label>
+    <div class="quiz-feedback" id="feedback-q5-2"></div>
+  </fieldset>
+
+  <fieldset class="quiz-question" data-q="3">
+    <legend class="sr-only">Question 3</legend>
+<div class="exam-legend"><span class="en-text">3. When a law enforcement officer pulls you over, what should you do first?</span><span class="bn-text">৩. একজন আইনশৃঙ্খলা কর্মকর্তা আপনাকে থামালে, প্রথমে আপনার কী করা উচিত?</span></div>
+    <label class="quiz-option"><input type="radio" name="q5-q3" value="a"> <span class="en-text">Use your turn signal and pull to the right as soon as it’s safe.</span><span class="bn-text">টার্ন সিগন্যাল ব্যবহার করুন এবং নিরাপদ হওয়া মাত্র ডানে সরে যান।</span></label>
+    <label class="quiz-option"><input type="radio" name="q5-q3" value="b"> <span class="en-text">Stop immediately, wherever you are.</span><span class="bn-text">আপনি যেখানে আছেন সেখানেই সাথে সাথে থামুন।</span></label>
+    <div class="quiz-feedback" id="feedback-q5-3"></div>
+  </fieldset>
+
+  <div class="quiz-actions">
+    <button type="button" onclick="checkQuiz('q5', 3)"><span class="en-text">Check answers</span><span class="bn-text">উত্তর যাচাই করুন</span></button>
+    <button type="button" class="secondary" onclick="showExplanation('q5')"><span class="en-text">Show explanations</span><span class="bn-text">ব্যাখ্যা দেখান</span></button>
+  </div>
+  <div id="quiz-result-q5" class="quiz-result" aria-live="polite"></div>
+  <div id="quiz-summary-q5" class="quiz-score-summary"></div>
+  <div id="quiz-questions-list-q5" class="quiz-questions-list" style="display:none;"></div>
+</form>
+
+</div>
+</section>
+
 <script>
 function toggleLang() {
   const btn = document.querySelector(".lang-toggle");
@@ -4212,30 +4336,42 @@ function checkQuiz(prefix, total) {
     q1: {q1:'a', q2:'a', q3:'b'},
     q2: {q1:'a', q2:'b', q3:'a'},
     q3: {q1:'a', q2:'a', q3:'a'},
+    q4: {q1:'a', q2:'a', q3:'a'},
+    q5: {q1:'a', q2:'a', q3:'a'},
     main: {q1:'a', q2:'b', q3:'a', q4:'a', q5:'a'}
   };
   const allExplanations = {
     q1: {
-      q1: { a: 'When you are not feeling well, you may not be able to focus on the road. Letting someone else drive keeps everyone safe.', b: 'Only drive if you feel healthy and alert.' },
-      q2: { a: 'The guide teaches rules, skills, and safe habits so you can earn your license and protect yourself and others.', b: 'Speeding is dangerous and illegal.' },
-      q3: { a: 'Emergency workers need space to do their jobs safely. Slowing down helps protect them.', b: 'Safety comes first—slow down near emergency scenes.' }
+      q1: { a: {en:"When you are not feeling well, you may not be able to focus on the road. Letting someone else drive keeps everyone safe.", bn:"আপনি যখন সুস্থ বোধ করেন না, তখন আপনি রাস্তায় মনোযোগ দিতে নাও পারতে পারেন। অন্য কাউকে গাড়ি চালাতে দেওয়া সবাইকে নিরাপদ রাখে।"}, b: {en:"Only drive if you feel healthy and alert.", bn:"শুধুমাত্র সুস্থ ও সজাগ বোধ করলেই গাড়ি চালান।"} },
+      q2: { a: {en:"The guide teaches rules, skills, and safe habits so you can earn your license and protect yourself and others.", bn:"এই গাইড নিয়ম, দক্ষতা এবং নিরাপদ অভ্যাস শেখায় যাতে আপনি আপনার লাইসেন্স অর্জন করতে এবং নিজেকে ও অন্যদের রক্ষা করতে পারেন।"}, b: {en:"Speeding is dangerous and illegal.", bn:"অতিরিক্ত গতি বিপজ্জনক ও বেআইনি।"} },
+      q3: { a: {en:"Emergency workers need space to do their jobs safely. Slowing down helps protect them.", bn:"জরুরি কর্মীদের নিরাপদে তাদের কাজ করার জন্য স্থান প্রয়োজন। গতি কমানো তাদের রক্ষা করতে সাহায্য করে।"}, b: {en:"Safety comes first—slow down near emergency scenes.", bn:"নিরাপত্তা সবার আগে — জরুরি ঘটনাস্থলের কাছে গতি কমান।"} }
     },
     q2: {
-      q1: { a: '10 and 2 gives good control and keeps your hands away from the airbag.', b: '1 and 11 is not the recommended position for normal driving.' },
-      q2: { a: 'Emergency braking is for emergencies only. Light to medium braking keeps everyone comfortable.', b: 'Normal driving calls for smooth, light-to-medium pressure.' },
-      q3: { a: 'The cup-of-water image helps you brake and accelerate smoothly without sudden movements.', b: 'Smooth control matters more than speed.' }
+      q1: { a: {en:"10 and 2 gives good control and keeps your hands away from the airbag.", bn:"10 এবং 2 ভালো নিয়ন্ত্রণ দেয় এবং আপনার হাতকে এয়ারব্যাগ থেকে দূরে রাখে।"}, b: {en:"1 and 11 is not the recommended position for normal driving.", bn:"1 এবং 11 স্বাভাবিক গাড়ি চালানোর জন্য সুপারিশকৃত অবস্থান নয়।"} },
+      q2: { a: {en:"Emergency braking is for emergencies only. Light to medium braking keeps everyone comfortable.", bn:"জরুরি ব্রেকিং শুধুমাত্র জরুরি পরিস্থিতির জন্য। হালকা থেকে মাঝারি ব্রেকিং সবাইকে স্বাচ্ছন্দ্যে রাখে।"}, b: {en:"Normal driving calls for smooth, light-to-medium pressure.", bn:"স্বাভাবিক গাড়ি চালানোর জন্য মসৃণ, হালকা থেকে মাঝারি চাপ প্রয়োজন।"} },
+      q3: { a: {en:"The cup-of-water image helps you brake and accelerate smoothly without sudden movements.", bn:"এক কাপ জলের কল্পনাটি আপনাকে হঠাৎ নড়াচড়া ছাড়াই মসৃণভাবে ব্রেক করতে ও গতি বাড়াতে সাহায্য করে।"}, b: {en:"Smooth control matters more than speed.", bn:"গতির চেয়ে মসৃণ নিয়ন্ত্রণ বেশি গুরুত্বপূর্ণ।"} }
     },
     q3: {
-      q1: { a: 'A good pre-trip check covers the instrument panel, windows, and loose items.', b: 'A full check is safer than just checking fuel.' },
-      q2: { a: 'Physical health directly affects reaction time, judgment, and control.', b: 'Even a small health issue can affect driving.' },
-      q3: { a: 'If corrective lenses are required, you must wear them every time you drive.', b: 'Clear vision is required by law.' }
+      q1: { a: {en:"A good pre-trip check covers the instrument panel, windows, and loose items.", bn:"একটি ভালো যাত্রা-পূর্ব পরীক্ষায় ইন্সট্রুমেন্ট প্যানেল, জানালা এবং আলগা জিনিসপত্র অন্তর্ভুক্ত থাকে।"}, b: {en:"A full check is safer than just checking fuel.", bn:"শুধু জ্বালানি পরীক্ষার চেয়ে একটি সম্পূর্ণ পরীক্ষা নিরাপদ।"} },
+      q2: { a: {en:"Physical health directly affects reaction time, judgment, and control.", bn:"শারীরিক স্বাস্থ্য সরাসরি প্রতিক্রিয়ার সময়, বিচার-বুদ্ধি এবং নিয়ন্ত্রণকে প্রভাবিত করে।"}, b: {en:"Even a small health issue can affect driving.", bn:"এমনকি একটি ছোট স্বাস্থ্য সমস্যাও গাড়ি চালানোকে প্রভাবিত করতে পারে।"} },
+      q3: { a: {en:"If corrective lenses are required, you must wear them every time you drive.", bn:"সংশোধনমূলক লেন্স প্রয়োজন হলে, গাড়ি চালানোর প্রতিবার আপনাকে তা পরতে হবে।"}, b: {en:"Clear vision is required by law.", bn:"আইন অনুযায়ী স্পষ্ট দৃষ্টিশক্তি প্রয়োজন।"} }
+    },
+    q4: {
+      q1: { a: {en:"Pedestrians in a crosswalk always have the right-of-way, regardless of your signal.", bn:"ক্রসওয়াকে থাকা পথচারীরা সবসময় অগ্রাধিকার পান, আপনার সিগন্যাল যাই হোক না কেন।"}, b: {en:"Pedestrians in a crosswalk always have the right-of-way, even if you have a green light.", bn:"ক্রসওয়াকে থাকা পথচারীরা সবসময় অগ্রাধিকার পান, এমনকি আপনার সবুজ বাতি থাকলেও।"} },
+      q2: { a: {en:"You must stop for a school bus with flashing red lights, unless separated by a median or barrier.", bn:"লাল বাতি জ্বলা স্কুল বাসের জন্য আপনাকে থামতে হবে, যদি না মধ্যক বা বাধা দ্বারা আলাদা করা থাকে।"}, b: {en:"Passing a stopped school bus with flashing red lights is illegal and puts children at serious risk.", bn:"লাল বাতি জ্বলা থামা স্কুল বাস পাশ কাটানো বেআইনি এবং শিশুদের গুরুতর ঝুঁকিতে ফেলে।"} },
+      q3: { a: {en:"Motorcyclists are entitled to a full lane. Never share a lane alongside one, even if they’re riding to one side.", bn:"মোটরসাইকেল চালকরা একটি সম্পূর্ণ লেনের অধিকারী। তারা একপাশে চললেও কখনো তাদের পাশাপাশি লেন ভাগ করবেন না।"}, b: {en:"Motorcyclists are entitled to the same full lane width as any other vehicle.", bn:"মোটরসাইকেল চালকরা অন্য যেকোনো যানবাহনের মতোই সম্পূর্ণ লেন প্রস্থের অধিকারী।"} }
+    },
+    q5: {
+      q1: { a: {en:"A 3-second following distance gives you time to see, analyze, and respond to hazards.", bn:"3 সেকেন্ডের অনুসরণ দূরত্ব আপনাকে বিপদ দেখা, বিশ্লেষণ করা এবং প্রতিক্রিয়া জানানোর সময় দেয়।"}, b: {en:"1 second isn’t enough time to react safely — aim for at least 3 seconds.", bn:"1 সেকেন্ড নিরাপদে প্রতিক্রিয়া জানানোর জন্য যথেষ্ট নয় — অন্তত 3 সেকেন্ডের লক্ষ্য রাখুন।"} },
+      q2: { a: {en:"Exchange contact, license, and insurance information, and file the required report within the legal timeframe.", bn:"যোগাযোগ, লাইসেন্স ও বীমার তথ্য বিনিময় করুন, এবং আইনগত সময়সীমার মধ্যে প্রয়োজনীয় রিপোর্ট দাখিল করুন।"}, b: {en:"Leaving the scene of a collision without exchanging information is illegal, regardless of how minor it seems.", bn:"তথ্য বিনিময় না করে সংঘর্ষস্থল ত্যাগ করা বেআইনি, তা যত সামান্যই মনে হোক না কেন।"} },
+      q3: { a: {en:"Signal and move to the right side of the road as soon as it’s safe to do so.", bn:"নিরাপদ হওয়া মাত্র সিগন্যাল দিন এবং রাস্তার ডান পাশে সরে যান।"}, b: {en:"Stopping immediately wherever you are could put you in an unsafe location — pull to the right side of the road.", bn:"আপনি যেখানে আছেন সেখানেই সাথে সাথে থামা আপনাকে একটি অনিরাপদ স্থানে ফেলতে পারে — রাস্তার ডান পাশে সরে যান।"} }
     },
     main: {
-      q1: { a: 'Stopping at a solid red is required by law. Proceed only when the light turns green or you are permitted to turn.', b: 'Speeding through a red light is illegal and extremely dangerous.' },
-      q2: { a: 'Mirrors alone do not cover all blind spots. You must also look over your shoulder.', b: 'Checking mirrors and looking over your shoulder gives the most complete view of your surroundings.' },
-      q3: { a: 'Stopping for a school bus with flashing red lights protects children. It is the law in most states.', b: 'Passing a stopped school bus with flashing red lights is illegal and puts children at serious risk.' },
-      q4: { a: 'Zipper merging uses both lanes and alternates vehicles to reduce congestion and keep traffic flowing safely.', b: 'Merging early can create bottlenecks. Both lanes should be used until the merge point.' },
-      q5: { a: 'Staying inside protects you from electrocution. Call 911 so professionals can handle the hazard.', b: 'Touching the vehicle could electrocute you if it is energized.' }
+      q1: { a: {en:"Stopping at a solid red is required by law. Proceed only when the light turns green or you are permitted to turn.", bn:"একটি স্থির লাল বাতিতে থামা আইন অনুযায়ী বাধ্যতামূলক। বাতি সবুজ হলে বা মোড় নেওয়ার অনুমতি থাকলেই কেবল এগিয়ে যান।"}, b: {en:"Speeding through a red light is illegal and extremely dangerous.", bn:"লাল বাতি দিয়ে দ্রুত চলে যাওয়া বেআইনি ও অত্যন্ত বিপজ্জনক।"} },
+      q2: { a: {en:"Mirrors alone do not cover all blind spots. You must also look over your shoulder.", bn:"শুধু আয়না সব অন্ধ অঞ্চল কভার করে না। আপনাকে কাঁধের ওপর দিয়েও দেখতে হবে।"}, b: {en:"Checking mirrors and looking over your shoulder gives the most complete view of your surroundings.", bn:"আয়না দেখা এবং কাঁধের ওপর দিয়ে দেখা আপনার চারপাশের সবচেয়ে সম্পূর্ণ দৃশ্য দেয়।"} },
+      q3: { a: {en:"Stopping for a school bus with flashing red lights protects children. It is the law in most states.", bn:"লাল বাতি জ্বলা স্কুল বাসের জন্য থামা শিশুদের রক্ষা করে। এটি বেশিরভাগ অঙ্গরাজ্যে আইন।"}, b: {en:"Passing a stopped school bus with flashing red lights is illegal and puts children at serious risk.", bn:"লাল বাতি জ্বলা থামা স্কুল বাস পাশ কাটানো বেআইনি এবং শিশুদের গুরুতর ঝুঁকিতে ফেলে।"} },
+      q4: { a: {en:"Zipper merging uses both lanes and alternates vehicles to reduce congestion and keep traffic flowing safely.", bn:"জিপার মার্জিং উভয় লেন ব্যবহার করে এবং যানজট কমাতে ও ট্রাফিক নিরাপদে প্রবাহিত রাখতে পালাক্রমে যানবাহন প্রবেশ করায়।"}, b: {en:"Merging early can create bottlenecks. Both lanes should be used until the merge point.", bn:"আগেভাগে একীভূত হলে যানজট তৈরি হতে পারে। একীভূতকরণ বিন্দু পর্যন্ত উভয় লেন ব্যবহার করা উচিত।"} },
+      q5: { a: {en:"Staying inside protects you from electrocution. Call 911 so professionals can handle the hazard.", bn:"গাড়ির ভেতরে থাকা আপনাকে বিদ্যুৎস্পৃষ্ট হওয়া থেকে রক্ষা করে। পেশাদাররা বিপদ মোকাবিলা করতে পারেন এমনভাবে ৯১১-এ কল করুন।"}, b: {en:"Touching the vehicle could electrocute you if it is energized.", bn:"গাড়িটি বিদ্যুতায়িত হলে এটি স্পর্শ করলে আপনি বিদ্যুৎস্পৃষ্ট হতে পারেন।"} }
     }
   };
 
@@ -4274,7 +4410,7 @@ function checkQuiz(prefix, total) {
       } else {
         feedback.classList.add('incorrect');
         feedback.classList.remove('correct');
-        const expl = explanations['q' + i][selected.value];
+        const expl = explanations['q' + i][selected.value][isBn ? 'bn' : 'en'];
         feedback.innerHTML = isBn ? '❌ ভুল। ' + expl : '❌ Incorrect. ' + expl;
       }
     }
@@ -4373,6 +4509,8 @@ function getCorrectAnswer(prefix, q) {
     q1: {1:'a', 2:'a', 3:'b'},
     q2: {1:'a', 2:'b', 3:'a'},
     q3: {1:'a', 2:'a', 3:'a'},
+    q4: {1:'a', 2:'a', 3:'a'},
+    q5: {1:'a', 2:'a', 3:'a'},
     main: {1:'a', 2:'b', 3:'a', 4:'a', 5:'a'}
   };
   const set = answers[prefix] || answers['main'];
