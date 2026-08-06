@@ -58,6 +58,13 @@ legend.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin
 .exam-callout-text { font-weight: 600; color: #7c2d12; }
 .exam-callout a.exam-callout-btn { background: #f59e0b; color: #1c1917; font-weight: 700; padding: 10px 18px; border-radius: 8px; text-decoration: none; white-space: nowrap; }
 .exam-callout a.exam-callout-btn:hover { background: #d97706; }
+.exam-callout h2 { margin: 0 0 6px; padding-bottom: 0; border-bottom: none; color: #7c2d12; font-size: 1.15rem; }
+.exam-callout p { margin: 0; color: #7c2d12; }
+#practice-exam .exam-callout { align-items: flex-start; }
+.quiz-toggle { display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; background: #003087; color: #fff; border: none; border-radius: 8px; font-size: 0.95rem; cursor: pointer; white-space: nowrap; }
+.quiz-toggle[aria-expanded="false"] .quiz-toggle-icon { transform: rotate(-90deg); }
+.quiz-toggle-icon { transition: transform 0.2s ease; font-size: 0.8rem; }
+.quiz-body.hidden { display: none; }
 </style>
 </head>
 <body>
@@ -2206,8 +2213,14 @@ legend.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin
 <div class="exam-legend"><span class="en-text">5. If a collision involves power lines, what should you generally do?</span><span class="bn-text">৫. সংঘর্ষে বিদ্যুৎ লাইন জড়িত হলে সাধারণত কী করবেন?</span></div><label class="quiz-option"><input type="radio" name="q5" value="a"> <span class="en-text">Stay in the vehicle, call 911, and wait for instructions.</span><span class="bn-text">গাড়ির ভেতরে থাকুন, ৯১১-এ কল করুন এবং নির্দেশের অপেক্ষা করুন।</span></label><label class="quiz-option"><input type="radio" name="q5" value="b"> <span class="en-text">Immediately touch the vehicle to test whether it is energized.</span><span class="bn-text">বিদ্যুৎ আছে কি না পরীক্ষা করতে সঙ্গে সঙ্গে গাড়ি স্পর্শ করুন।</span></label></fieldset><button type="button" onclick="gradeQuiz()"><span class="en-text">Check answers</span><span class="bn-text">উত্তর যাচাই করুন</span></button><div id="quiz-result" class="quiz-result" aria-live="polite"></div></form></section>
 
 <section id="practice-exam" class="quiz">
-<h2>সম্পূর্ণ অনুশীলনী পরীক্ষা (৪৭টি প্রশ্ন)</h2>
-<p>ওয়াশিংটনের প্রকৃত নলেজ টেস্টের বিষয়গুলো কভার করে একটি দীর্ঘ, পরীক্ষার সাথে বাস্তবসম্মত প্রশ্নসেট। প্রতিটি প্রশ্নে প্রকৃত পরীক্ষার মতো ৪টি বিকল্প রয়েছে। প্রতিটি প্রশ্নের উত্তর দিন, তারপর ফলাফল দেখুন।</p>
+<div class="exam-callout">
+  <div>
+    <h2>সম্পূর্ণ অনুশীলনী পরীক্ষা (৪৭টি প্রশ্ন)</h2>
+    <p>ওয়াশিংটনের প্রকৃত নলেজ টেস্টের বিষয়গুলো কভার করে একটি দীর্ঘ, পরীক্ষার সাথে বাস্তবসম্মত প্রশ্নসেট। প্রতিটি প্রশ্নে প্রকৃত পরীক্ষার মতো ৪টি বিকল্প রয়েছে। প্রতিটি প্রশ্নের উত্তর দিন, তারপর ফলাফল দেখুন।</p>
+  </div>
+  <button class="quiz-toggle" id="exam-toggle-btn" onclick="toggleExam()" aria-expanded="true">পরীক্ষা লুকান <span class="quiz-toggle-icon" aria-hidden="true">▼</span></button>
+</div>
+<div class="quiz-body" id="practice-exam-body">
 <form id="exam-form">
     <fieldset class="exam-question quiz-question" data-idx="0">
       <legend class="sr-only">Question 1</legend>
@@ -2638,6 +2651,7 @@ legend.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin
     </div>
     <div class="exam-result quiz-result" id="exam-result"></div>
 </form>
+</div>
 </section>
 
 
@@ -2789,6 +2803,13 @@ function checkMiniQuiz(prefix) {
   resultEl.classList.add('show');
   resultEl.innerHTML = isBn ? ('আপনার স্কোর: ' + score + '/' + total) : ('Your score: ' + score + '/' + total);
   resultEl.scrollIntoView({behavior: 'smooth', block: 'center'});
+}
+function toggleExam() {
+  const body = document.getElementById('practice-exam-body');
+  const btn = document.getElementById('exam-toggle-btn');
+  const isHidden = body.classList.toggle('hidden');
+  btn.innerHTML = (isHidden ? 'পরীক্ষা দেখান ' : 'পরীক্ষা লুকান ') + '<span class="quiz-toggle-icon" aria-hidden="true">▼</span>';
+  btn.setAttribute('aria-expanded', isHidden ? 'false' : 'true');
 }
 function resetMiniQuiz(prefix) {
   document.querySelectorAll('input[name^="' + prefix + '-q"]').forEach(function(i) { i.checked = false; });

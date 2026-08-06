@@ -273,6 +273,9 @@ legend.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin
 .exam-callout-text { font-weight: 600; color: #7c2d12; }
 .exam-callout a.exam-callout-btn { background: #f59e0b; color: #1c1917; font-weight: 700; padding: 10px 18px; border-radius: 8px; text-decoration: none; white-space: nowrap; }
 .exam-callout a.exam-callout-btn:hover { background: #d97706; }
+.exam-callout h2 { margin: 0 0 6px; padding-bottom: 0; border-bottom: none; color: #7c2d12; font-size: 1.15rem; }
+.exam-callout p { margin: 0; color: #7c2d12; }
+#practice-exam .exam-callout { align-items: flex-start; }
 </style>
 </head>
 <body class="bn-mode" onload="loadProgress()">
@@ -4677,8 +4680,18 @@ function resetExam() {
 </section>
 
 <section id="practice-exam" class="quiz">
-<h2><span class="en-text">Full practice exam (47 questions)</span><span class="bn-text">সম্পূর্ণ অনুশীলনী পরীক্ষা (৪৭টি প্রশ্ন)</span></h2>
-<p><span class="en-text">A longer, more exam-realistic set covering the topics on the actual Washington Knowledge Test. Each question has 4 choices, like the real exam. Answer every question, then check your results.</span><span class="bn-text">ওয়াশিংটনের প্রকৃত নলেজ টেস্টের বিষয়গুলো কভার করে একটি দীর্ঘ, পরীক্ষার সাথে বাস্তবসম্মত প্রশ্নসেট। প্রতিটি প্রশ্নে প্রকৃত পরীক্ষার মতো ৪টি বিকল্প রয়েছে। প্রতিটি প্রশ্নের উত্তর দিন, তারপর ফলাফল দেখুন।</span></p>
+<div class="exam-callout">
+  <div>
+    <h2><span class="en-text">Full practice exam (47 questions)</span><span class="bn-text">সম্পূর্ণ অনুশীলনী পরীক্ষা (৪৭টি প্রশ্ন)</span></h2>
+    <p><span class="en-text">A longer, more exam-realistic set covering the topics on the actual Washington Knowledge Test. Each question has 4 choices, like the real exam. Answer every question, then check your results.</span><span class="bn-text">ওয়াশিংটনের প্রকৃত নলেজ টেস্টের বিষয়গুলো কভার করে একটি দীর্ঘ, পরীক্ষার সাথে বাস্তবসম্মত প্রশ্নসেট। প্রতিটি প্রশ্নে প্রকৃত পরীক্ষার মতো ৪টি বিকল্প রয়েছে। প্রতিটি প্রশ্নের উত্তর দিন, তারপর ফলাফল দেখুন।</span></p>
+  </div>
+  <button class="quiz-toggle" onclick="toggleQuiz('practice-exam')" aria-expanded="true">
+    <span class="en-text">Hide exam</span>
+    <span class="bn-text">পরীক্ষা লুকান</span>
+    <span class="quiz-toggle-icon" aria-hidden="true">▼</span>
+  </button>
+</div>
+<div class="quiz-body" id="practice-exam-body">
 <form id="exam-form">
     <fieldset class="exam-question quiz-question" data-idx="0">
       <legend class="sr-only">Question 1</legend>
@@ -5109,6 +5122,7 @@ function resetExam() {
     </div>
     <div class="exam-result quiz-result" id="exam-result"></div>
 </form>
+</div>
 </section>
 
 
