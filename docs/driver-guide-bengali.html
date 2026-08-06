@@ -24,7 +24,7 @@ figure.source-art img { display: block; width: 100%; height: auto; }
 figure.source-art figcaption { margin-top: 8px; color: #555; font-size: .85rem; }
  .quiz { background: #eef6ff; border: 1px solid #b7d4f2; padding: 16px; border-radius: 10px; margin: 24px 0; }
  .quiz-question { margin: 18px 0; padding: 12px; background: #fff; border-radius: 8px; }
- .quiz-question legend { font-weight: 700; margin-bottom: 8px; }
+ .quiz-question legend { font-weight: 700; margin-bottom: 8px; display: table; width: 100%; padding: 0; white-space: normal; }
  .quiz-option { display: block; margin: 7px 0; }
  .quiz button { background: #003087; color: #fff; border: 0; border-radius: 6px; padding: 9px 14px; cursor: pointer; }
  .quiz-result { margin-top: 12px; font-weight: 700; }
@@ -40,6 +40,20 @@ section h3:first-child { margin-top: 0; }
 @media print { section h3 { break-after: avoid; } }
 
 /* quiz-language-css */ .quiz .en-text { display: none; }
+
+.exam-question { margin: 18px 0; padding: 12px; background: #fff; border-radius: 8px; border: 1px solid #e0e0e0; }
+.exam-question legend.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+.exam-legend { font-weight: 700; margin-bottom: 8px; }
+.exam-feedback { margin-top: 8px; padding: 8px 10px; border-radius: 6px; font-size: 0.9rem; display: none; }
+.exam-feedback.show { display: block; background: #f5f5f5; }
+.exam-actions { display: flex; gap: 10px; margin: 16px 0; flex-wrap: wrap; }
+.exam-actions button { background: #003087; color: #fff; border: 0; border-radius: 6px; padding: 10px 16px; cursor: pointer; font-size: 0.95rem; }
+.exam-actions button.secondary { background: #eef4fb; color: #003087; border: 1px solid #b7d4f2; }
+.exam-result { margin-top: 12px; font-weight: 700; font-size: 1.05rem; padding: 12px; border-radius: 8px; display: none; }
+.exam-result.show { display: block; background: #eef6ff; border: 1px solid #b7d4f2; }
+.quiz-option.correct { background: #dcfce7 !important; border-color: #16a34a !important; }
+.quiz-option.incorrect { background: #fef2f2 !important; border-color: #dc2626 !important; }
+.quiz-option.disabled { opacity: 0.6; pointer-events: none; }
 </style>
 </head>
 <body>
@@ -2009,6 +2023,443 @@ section h3:first-child { margin-top: 0; }
 <fieldset class="quiz-question"><legend><span class="en-text">4. What does zipper merging mean?</span><span class="bn-text">৪. জিপার মার্জিং বলতে কী বোঝায়?</span></legend><label class="quiz-option"><input type="radio" name="q4" value="a"> <span class="en-text">Use both lanes and take turns merging.</span><span class="bn-text">দুই লেন ব্যবহার করে পালা করে একীভূত হওয়া।</span></label><label class="quiz-option"><input type="radio" name="q4" value="b"> <span class="en-text">Move into the other lane as early as possible.</span><span class="bn-text">যত তাড়াতাড়ি সম্ভব অন্য লেনে চলে যাওয়া।</span></label></fieldset>
 <fieldset class="quiz-question"><legend><span class="en-text">5. If a collision involves power lines, what should you generally do?</span><span class="bn-text">৫. সংঘর্ষে বিদ্যুৎ লাইন জড়িত হলে সাধারণত কী করবেন?</span></legend><label class="quiz-option"><input type="radio" name="q5" value="a"> <span class="en-text">Stay in the vehicle, call 911, and wait for instructions.</span><span class="bn-text">গাড়ির ভেতরে থাকুন, ৯১১-এ কল করুন এবং নির্দেশের অপেক্ষা করুন।</span></label><label class="quiz-option"><input type="radio" name="q5" value="b"> <span class="en-text">Immediately touch the vehicle to test whether it is energized.</span><span class="bn-text">বিদ্যুৎ আছে কি না পরীক্ষা করতে সঙ্গে সঙ্গে গাড়ি স্পর্শ করুন।</span></label></fieldset><button type="button" onclick="gradeQuiz()"><span class="en-text">Check answers</span><span class="bn-text">উত্তর যাচাই করুন</span></button><div id="quiz-result" class="quiz-result" aria-live="polite"></div></form></section>
 
+<section id="practice-exam" class="quiz">
+<h2>সম্পূর্ণ অনুশীলনী পরীক্ষা (৪৭টি প্রশ্ন)</h2>
+<p>ওয়াশিংটনের প্রকৃত নলেজ টেস্টের বিষয়গুলো কভার করে একটি দীর্ঘ, পরীক্ষার সাথে বাস্তবসম্মত প্রশ্নসেট। প্রতিটি প্রশ্নে প্রকৃত পরীক্ষার মতো ৪টি বিকল্প রয়েছে। প্রতিটি প্রশ্নের উত্তর দিন, তারপর ফলাফল দেখুন।</p>
+<form id="exam-form">
+    <fieldset class="exam-question quiz-question" data-idx="0">
+      <legend class="sr-only">Question 1</legend>
+      <div class="exam-legend">1. ওয়াশিংটনে ২১ বছর বা তার বেশি বয়সী চালকদের জন্য আইনগত রক্তে অ্যালকোহলের ঘনত্বের (BAC) সীমা কত?</div>
+      <label class="quiz-option"><input type="radio" name="exam-q0" value="0"> ০.০৫%</label>
+      <label class="quiz-option"><input type="radio" name="exam-q0" value="1"> ০.০৮%</label>
+      <label class="quiz-option"><input type="radio" name="exam-q0" value="2"> ০.১০%</label>
+      <label class="quiz-option"><input type="radio" name="exam-q0" value="3"> ০.০২%</label>
+      <div class="exam-feedback quiz-feedback" id="exam-feedback-0"></div>
+    </fieldset>
+    <fieldset class="exam-question quiz-question" data-idx="1">
+      <legend class="sr-only">Question 2</legend>
+      <div class="exam-legend">2. কোনো ট্রাফিক চিহ্ন বা সংকেত ছাড়া একটি চৌরাস্তায়, দুটি যানবাহন একই সময়ে পৌঁছালে, কার অগ্রাধিকার থাকে?</div>
+      <label class="quiz-option"><input type="radio" name="exam-q1" value="0"> দ্রুতগামী যানবাহন</label>
+      <label class="quiz-option"><input type="radio" name="exam-q1" value="1"> বাম দিকের যানবাহন</label>
+      <label class="quiz-option"><input type="radio" name="exam-q1" value="2"> ডান দিকের যানবাহন</label>
+      <label class="quiz-option"><input type="radio" name="exam-q1" value="3"> বড় যানবাহন</label>
+      <div class="exam-feedback quiz-feedback" id="exam-feedback-1"></div>
+    </fieldset>
+    <fieldset class="exam-question quiz-question" data-idx="2">
+      <legend class="sr-only">Question 3</legend>
+      <div class="exam-legend">3. একটি জ্বলজ্বল করা হলুদ ট্রাফিক লাইটের অর্থ কী?</div>
+      <label class="quiz-option"><input type="radio" name="exam-q2" value="0"> সম্পূর্ণভাবে থামুন, তারপর এগিয়ে যান</label>
+      <label class="quiz-option"><input type="radio" name="exam-q2" value="1"> গতি কমান এবং সতর্কতার সাথে এগিয়ে যান</label>
+      <label class="quiz-option"><input type="radio" name="exam-q2" value="2"> শুধুমাত্র পথচারী থাকলে থামুন</label>
+      <label class="quiz-option"><input type="radio" name="exam-q2" value="3"> চৌরাস্তা পার হতে গতি বাড়ান</label>
+      <div class="exam-feedback quiz-feedback" id="exam-feedback-2"></div>
+    </fieldset>
+    <fieldset class="exam-question quiz-question" data-idx="3">
+      <legend class="sr-only">Question 4</legend>
+      <div class="exam-legend">4. মোড় নেওয়ার কতদূর আগে সিগন্যাল দেওয়া উচিত?</div>
+      <label class="quiz-option"><input type="radio" name="exam-q3" value="0"> অন্তত ১০০ ফুট আগে</label>
+      <label class="quiz-option"><input type="radio" name="exam-q3" value="1"> শুধু আপনার পেছনে গাড়ি থাকলে</label>
+      <label class="quiz-option"><input type="radio" name="exam-q3" value="2"> মোড় নেওয়া শুরু করার সাথে সাথে</label>
+      <label class="quiz-option"><input type="radio" name="exam-q3" value="3"> হালকা ট্রাফিকে এটি প্রয়োজন নেই</label>
+      <div class="exam-feedback quiz-feedback" id="exam-feedback-3"></div>
+    </fieldset>
+    <fieldset class="exam-question quiz-question" data-idx="4">
+      <legend class="sr-only">Question 5</legend>
+      <div class="exam-legend">5. স্বাভাবিক পরিস্থিতিতে, সামনের যানবাহন থেকে কতটা অনুসরণ দূরত্ব রাখা সুপারিশ করা হয়?</div>
+      <label class="quiz-option"><input type="radio" name="exam-q4" value="0"> ১ সেকেন্ড</label>
+      <label class="quiz-option"><input type="radio" name="exam-q4" value="1"> অন্তত ৩ সেকেন্ড</label>
+      <label class="quiz-option"><input type="radio" name="exam-q4" value="2"> ১০ সেকেন্ড</label>
+      <label class="quiz-option"><input type="radio" name="exam-q4" value="3"> ঘণ্টায় ৩০ মাইলের নিচে দূরত্ব গুরুত্বপূর্ণ নয়</label>
+      <div class="exam-feedback quiz-feedback" id="exam-feedback-4"></div>
+    </fieldset>
+    <fieldset class="exam-question quiz-question" data-idx="5">
+      <legend class="sr-only">Question 6</legend>
+      <div class="exam-legend">6. আপনি একটি দুই লেনের রাস্তায় আছেন এবং সামনে লাল বাতি জ্বলা অবস্থায় থামা একটি স্কুল বাস দেখছেন। আপনি কী করবেন?</div>
+      <label class="quiz-option"><input type="radio" name="exam-q5" value="0"> কম গতিতে সাবধানে পাশ কাটান</label>
+      <label class="quiz-option"><input type="radio" name="exam-q5" value="1"> থামুন, আপনি যেদিকেই যাচ্ছেন না কেন</label>
+      <label class="quiz-option"><input type="radio" name="exam-q5" value="2"> শুধু শিশুদের দেখা গেলে থামুন</label>
+      <label class="quiz-option"><input type="radio" name="exam-q5" value="3"> টার্ন লেনে থাকলে এগিয়ে যান</label>
+      <div class="exam-feedback quiz-feedback" id="exam-feedback-5"></div>
+    </fieldset>
+    <fieldset class="exam-question quiz-question" data-idx="6">
+      <legend class="sr-only">Question 7</legend>
+      <div class="exam-legend">7. জ্বলজ্বল করা লাল বাতিসহ একটি রেলপথ ক্রসিংয়ের কাছে গেলে, আপনার কী করা উচিত?</div>
+      <label class="quiz-option"><input type="radio" name="exam-q6" value="0"> ট্রেন আসার আগে পার হতে গতি বাড়ান</label>
+      <label class="quiz-option"><input type="radio" name="exam-q6" value="1"> থামুন এবং নিরাপদ না হওয়া পর্যন্ত অপেক্ষা করুন</label>
+      <label class="quiz-option"><input type="radio" name="exam-q6" value="2"> শুধু ট্রেন দেখতে পেলে থামুন</label>
+      <label class="quiz-option"><input type="radio" name="exam-q6" value="3"> হর্ন বাজিয়ে এগিয়ে যান</label>
+      <div class="exam-feedback quiz-feedback" id="exam-feedback-6"></div>
+    </fieldset>
+    <fieldset class="exam-question quiz-question" data-idx="7">
+      <legend class="sr-only">Question 8</legend>
+      <div class="exam-legend">8. ওয়াশিংটনের "মুভ ওভার" আইনে কী প্রয়োজন?</div>
+      <label class="quiz-option"><input type="radio" name="exam-q7" value="0"> শোল্ডারে থাকা যেকোনো যানবাহনের জন্য সরে যাওয়া</label>
+      <label class="quiz-option"><input type="radio" name="exam-q7" value="1"> ফ্ল্যাশিং লাইটসহ থেমে থাকা জরুরি/সেবা যানবাহনের জন্য এক লেন সরে যাওয়া বা গতি কমানো</label>
+      <label class="quiz-option"><input type="radio" name="exam-q7" value="2"> এটি শুধু ফ্রিওয়েতে প্রযোজ্য</label>
+      <label class="quiz-option"><input type="radio" name="exam-q7" value="3"> এটি শুধু দিনের বেলায় প্রযোজ্য</label>
+      <div class="exam-feedback quiz-feedback" id="exam-feedback-7"></div>
+    </fieldset>
+    <fieldset class="exam-question quiz-question" data-idx="8">
+      <legend class="sr-only">Question 9</legend>
+      <div class="exam-legend">9. ওয়াশিংটনে চলন্ত যানবাহনে সিট বেল্ট পরা কার জন্য বাধ্যতামূলক?</div>
+      <label class="quiz-option"><input type="radio" name="exam-q8" value="0"> শুধু চালকের জন্য</label>
+      <label class="quiz-option"><input type="radio" name="exam-q8" value="1"> শুধু সামনের সিটের যাত্রীদের জন্য</label>
+      <label class="quiz-option"><input type="radio" name="exam-q8" value="2"> গাড়িতে থাকা প্রত্যেকের জন্য</label>
+      <label class="quiz-option"><input type="radio" name="exam-q8" value="3"> শুধু ১৮ বছরের বেশি বয়সী যাত্রীদের জন্য</label>
+      <div class="exam-feedback quiz-feedback" id="exam-feedback-8"></div>
+    </fieldset>
+    <fieldset class="exam-question quiz-question" data-idx="9">
+      <legend class="sr-only">Question 10</legend>
+      <div class="exam-legend">10. "জিপার মার্জিং" কী?</div>
+      <label class="quiz-option"><input type="radio" name="exam-q9" value="0"> যত তাড়াতাড়ি সম্ভব খোলা লেনে একীভূত হওয়া</label>
+      <label class="quiz-option"><input type="radio" name="exam-q9" value="1"> একীভূত হওয়ার বিন্দু পর্যন্ত উভয় লেন ব্যবহার করা, তারপর পালাক্রমে যানবাহন</label>
+      <label class="quiz-option"><input type="radio" name="exam-q9" value="2"> সব অন্য গাড়িকে আগে একীভূত হতে দিতে থামা</label>
+      <label class="quiz-option"><input type="radio" name="exam-q9" value="3"> শুধুমাত্র বড় ট্রাকের জন্য একটি কৌশল</label>
+      <div class="exam-feedback quiz-feedback" id="exam-feedback-9"></div>
+    </fieldset>
+    <fieldset class="exam-question quiz-question" data-idx="10">
+      <legend class="sr-only">Question 11</legend>
+      <div class="exam-legend">11. আপনার গাড়ি হাইড্রোপ্লেনিং শুরু করলে আপনার কী করা উচিত?</div>
+      <label class="quiz-option"><input type="radio" name="exam-q10" value="0"> সাথে সাথে জোরে ব্রেক করুন</label>
+      <label class="quiz-option"><input type="radio" name="exam-q10" value="1"> হুইল দ্রুত ঘোরান</label>
+      <label class="quiz-option"><input type="radio" name="exam-q10" value="2"> গ্যাস থেকে পা সরিয়ে নিন এবং ট্র্যাকশন ফিরে না আসা পর্যন্ত সোজা স্টিয়ার করুন</label>
+      <label class="quiz-option"><input type="radio" name="exam-q10" value="3"> জোরে চালিয়ে পার হওয়ার চেষ্টা করুন</label>
+      <div class="exam-feedback quiz-feedback" id="exam-feedback-10"></div>
+    </fieldset>
+    <fieldset class="exam-question quiz-question" data-idx="11">
+      <legend class="sr-only">Question 12</legend>
+      <div class="exam-legend">12. ডান দিক দিয়ে অন্য যানবাহনকে ওভারটেক করা কখন আইনসম্মত?</div>
+      <label class="quiz-option"><input type="radio" name="exam-q11" value="0"> কখনোই নয়, কোনো পরিস্থিতিতেই না</label>
+      <label class="quiz-option"><input type="radio" name="exam-q11" value="1"> একাধিক লেনের রাস্তা বা ওয়ান-ওয়ে রাস্তায়, যখন এটি নিরাপদে করা যায়</label>
+      <label class="quiz-option"><input type="radio" name="exam-q11" value="2"> শুধু ফ্রিওয়েতে</label>
+      <label class="quiz-option"><input type="radio" name="exam-q11" value="3"> শুধু অন্য গাড়ি বামে মোড় নিলে</label>
+      <div class="exam-feedback quiz-feedback" id="exam-feedback-11"></div>
+    </fieldset>
+    <fieldset class="exam-question quiz-question" data-idx="12">
+      <legend class="sr-only">Question 13</legend>
+      <div class="exam-legend">13. পেছন থেকে লাইট ও সাইরেন চালু অবস্থায় একটি জরুরি যানবাহন কাছে এলে আপনার কী করা উচিত?</div>
+      <label class="quiz-option"><input type="radio" name="exam-q12" value="0"> পথ থেকে সরে যেতে গতি বাড়ান</label>
+      <label class="quiz-option"><input type="radio" name="exam-q12" value="1"> ডানে সরে গিয়ে থামুন যতক্ষণ না এটি পার হয়ে যায়</label>
+      <label class="quiz-option"><input type="radio" name="exam-q12" value="2"> আপনি যেখানে আছেন সেখানেই সাথে সাথে থামুন</label>
+      <label class="quiz-option"><input type="radio" name="exam-q12" value="3"> একই গতিতে চলতে থাকুন</label>
+      <div class="exam-feedback quiz-feedback" id="exam-feedback-12"></div>
+    </fieldset>
+    <fieldset class="exam-question quiz-question" data-idx="13">
+      <legend class="sr-only">Question 14</legend>
+      <div class="exam-legend">14. কেন্দ্র রেখার আপনার পাশে একটি অবিচ্ছিন্ন হলুদ রেখার অর্থ কী?</div>
+      <label class="quiz-option"><input type="radio" name="exam-q13" value="0"> নিরাপদ হলে ওভারটেক করা যায়</label>
+      <label class="quiz-option"><input type="radio" name="exam-q13" value="1"> ওভারটেক করা যাবে না</label>
+      <label class="quiz-option"><input type="radio" name="exam-q13" value="2"> শুধু পার্ক করতে পার হতে পারেন</label>
+      <label class="quiz-option"><input type="radio" name="exam-q13" value="3"> এটি একটি বাইক লেন নির্দেশ করে</label>
+      <div class="exam-feedback quiz-feedback" id="exam-feedback-13"></div>
+    </fieldset>
+    <fieldset class="exam-question quiz-question" data-idx="14">
+      <legend class="sr-only">Question 15</legend>
+      <div class="exam-legend">15. একটি বড় ট্রাকের চারপাশে কোন এলাকাগুলো এর অন্ধ অঞ্চল ("নো জোন")?</div>
+      <label class="quiz-option"><input type="radio" name="exam-q14" value="0"> শুধু এর ঠিক পেছনে</label>
+      <label class="quiz-option"><input type="radio" name="exam-q14" value="1"> শুধু এর ঠিক সামনে</label>
+      <label class="quiz-option"><input type="radio" name="exam-q14" value="2"> উভয় পাশে, সামনে ও পেছনে বড় এলাকা</label>
+      <label class="quiz-option"><input type="radio" name="exam-q14" value="3"> বড় ট্রাকের কোনো অন্ধ অঞ্চল নেই</label>
+      <div class="exam-feedback quiz-feedback" id="exam-feedback-14"></div>
+    </fieldset>
+    <fieldset class="exam-question quiz-question" data-idx="15">
+      <legend class="sr-only">Question 16</legend>
+      <div class="exam-legend">16. একটি লাল রঙের কার্ব সাধারণত কী নির্দেশ করে?</div>
+      <label class="quiz-option"><input type="radio" name="exam-q15" value="0"> পার্কিং বা থামা নিষেধ</label>
+      <label class="quiz-option"><input type="radio" name="exam-q15" value="1"> একটি লোডিং জোন</label>
+      <label class="quiz-option"><input type="radio" name="exam-q15" value="2"> শুধুমাত্র প্রতিবন্ধী পার্কিং</label>
+      <label class="quiz-option"><input type="radio" name="exam-q15" value="3"> বিনামূল্যে ২ ঘণ্টার পার্কিং</label>
+      <div class="exam-feedback quiz-feedback" id="exam-feedback-15"></div>
+    </fieldset>
+    <fieldset class="exam-question quiz-question" data-idx="16">
+      <legend class="sr-only">Question 17</legend>
+      <div class="exam-legend">17. দুটি যানবাহন একই সময়ে একটি চার-মুখী স্টপে পৌঁছালে, কে আগে যাবে?</div>
+      <label class="quiz-option"><input type="radio" name="exam-q16" value="0"> বাম দিকের যানবাহন</label>
+      <label class="quiz-option"><input type="radio" name="exam-q16" value="1"> ডান দিকের যানবাহন</label>
+      <label class="quiz-option"><input type="radio" name="exam-q16" value="2"> বড় যানবাহন</label>
+      <label class="quiz-option"><input type="radio" name="exam-q16" value="3"> যে আগে হর্ন বাজায়</label>
+      <div class="exam-feedback quiz-feedback" id="exam-feedback-16"></div>
+    </fieldset>
+    <fieldset class="exam-question quiz-question" data-idx="17">
+      <legend class="sr-only">Question 18</legend>
+      <div class="exam-legend">18. ওয়াশিংটনে স্থগিত লাইসেন্স নিয়ে গাড়ি চালালে কী ঘটতে পারে?</div>
+      <label class="quiz-option"><input type="radio" name="exam-q17" value="0"> কিছুই না, প্রথমবার হলে</label>
+      <label class="quiz-option"><input type="radio" name="exam-q17" value="1"> সম্ভাব্য গ্রেপ্তার এবং যানবাহন জব্দ</label>
+      <label class="quiz-option"><input type="radio" name="exam-q17" value="2"> শুধু মৌখিক সতর্কতা</label>
+      <label class="quiz-option"><input type="radio" name="exam-q17" value="3"> ২০ ডলারের মধ্যে সীমাবদ্ধ একটি ছোট জরিমানা</label>
+      <div class="exam-feedback quiz-feedback" id="exam-feedback-17"></div>
+    </fieldset>
+    <fieldset class="exam-question quiz-question" data-idx="18">
+      <legend class="sr-only">Question 19</legend>
+      <div class="exam-legend">19. আপনার গাড়ি পেছনে নেওয়ার আগে আপনার কী করা উচিত?</div>
+      <label class="quiz-option"><input type="radio" name="exam-q18" value="0"> শুধু আয়নার ওপর নির্ভর করুন</label>
+      <label class="quiz-option"><input type="radio" name="exam-q18" value="1"> কাঁধের ওপর দিয়ে দেখাসহ আপনার চারপাশ পরীক্ষা করুন</label>
+      <label class="quiz-option"><input type="radio" name="exam-q18" value="2"> শুধু রিয়ারভিউ মিরর দেখুন</label>
+      <label class="quiz-option"><input type="radio" name="exam-q18" value="3"> চলার সময় ক্রমাগত হর্ন বাজান</label>
+      <div class="exam-feedback quiz-feedback" id="exam-feedback-18"></div>
+    </fieldset>
+    <fieldset class="exam-question quiz-question" data-idx="19">
+      <legend class="sr-only">Question 20</legend>
+      <div class="exam-legend">20. ওয়াশিংটনের "বেসিক স্পিড রুল" কী?</div>
+      <label class="quiz-option"><input type="radio" name="exam-q19" value="0"> সবসময় পোস্ট করা গতিসীমায় গাড়ি চালান</label>
+      <label class="quiz-option"><input type="radio" name="exam-q19" value="1"> কখনো গতিসীমার নিচে গাড়ি চালাবেন না</label>
+      <label class="quiz-option"><input type="radio" name="exam-q19" value="2"> বর্তমান পরিস্থিতির জন্য নিরাপদ গতির চেয়ে দ্রুত কখনো চালাবেন না, এমনকি পোস্ট করা সীমার নিচেও নয়</label>
+      <label class="quiz-option"><input type="radio" name="exam-q19" value="3"> এটি শুধু হাইওয়েতে প্রযোজ্য</label>
+      <div class="exam-feedback quiz-feedback" id="exam-feedback-19"></div>
+    </fieldset>
+    <fieldset class="exam-question quiz-question" data-idx="20">
+      <legend class="sr-only">Question 21</legend>
+      <div class="exam-legend">21. ওয়াশিংটনে গাড়ি চালানোর সময় কখন আইনসম্মতভাবে সেল ফোন হাতে ধরে ব্যবহার করা যায়?</div>
+      <label class="quiz-option"><input type="radio" name="exam-q20" value="0"> কখনো নয়, শুধু প্রকৃত জরুরি অবস্থা রিপোর্ট করা ছাড়া</label>
+      <label class="quiz-option"><input type="radio" name="exam-q20" value="1"> লাল বাতিতে থামা অবস্থায় যেকোনো সময়</label>
+      <label class="quiz-option"><input type="radio" name="exam-q20" value="2"> ঘণ্টায় ২৫ মাইলের নিচে চালানোর সময় যেকোনো সময়</label>
+      <label class="quiz-option"><input type="radio" name="exam-q20" value="3"> হাতে ধরে স্পিকারফোন ব্যবহারের সময়</label>
+      <div class="exam-feedback quiz-feedback" id="exam-feedback-20"></div>
+    </fieldset>
+    <fieldset class="exam-question quiz-question" data-idx="21">
+      <legend class="sr-only">Question 22</legend>
+      <div class="exam-legend">22. একটি হীরা-আকৃতির হলুদ চিহ্ন সাধারণত কী নির্দেশ করে?</div>
+      <label class="quiz-option"><input type="radio" name="exam-q21" value="0"> একটি নিয়ন্ত্রক নিয়ম যা আপনাকে মানতে হবে</label>
+      <label class="quiz-option"><input type="radio" name="exam-q21" value="1"> সামনে একটি বিপদ বা পরিবর্তনশীল রাস্তার পরিস্থিতির সতর্কতা</label>
+      <label class="quiz-option"><input type="radio" name="exam-q21" value="2"> কাছাকাছি পরিষেবার দিকনির্দেশ</label>
+      <label class="quiz-option"><input type="radio" name="exam-q21" value="3"> বিশেষভাবে একটি নির্মাণ এলাকা</label>
+      <div class="exam-feedback quiz-feedback" id="exam-feedback-21"></div>
+    </fieldset>
+    <fieldset class="exam-question quiz-question" data-idx="22">
+      <legend class="sr-only">Question 23</legend>
+      <div class="exam-legend">23. একটি গোলচত্বরের কাছে যাওয়ার সঠিক পদ্ধতি কী?</div>
+      <label class="quiz-option"><input type="radio" name="exam-q22" value="0"> আগে একীভূত হতে গতি বাড়ান</label>
+      <label class="quiz-option"><input type="radio" name="exam-q22" value="1"> গোলচত্বরে থাকা ট্রাফিককে পথ ছাড়ুন, তারপর প্রবেশ করে ঘড়ির কাঁটার বিপরীতে চলুন</label>
+      <label class="quiz-option"><input type="radio" name="exam-q22" value="2"> প্রবেশের আগে সবসময় সম্পূর্ণ থামুন</label>
+      <label class="quiz-option"><input type="radio" name="exam-q22" value="3"> গোলচত্বরে পথ ছাড়ার প্রয়োজন নেই</label>
+      <div class="exam-feedback quiz-feedback" id="exam-feedback-22"></div>
+    </fieldset>
+    <fieldset class="exam-question quiz-question" data-idx="23">
+      <legend class="sr-only">Question 24</legend>
+      <div class="exam-legend">24. আপনি একটি সামান্য সংঘর্ষে জড়িয়েছেন যেখানে শুধু যানবাহনের ক্ষতি হয়েছে, কোনো আঘাত নেই। আপনার কী করা উচিত?</div>
+      <label class="quiz-option"><input type="radio" name="exam-q23" value="0"> অন্য চালক না থাকলে গাড়ি চালিয়ে চলে যান</label>
+      <label class="quiz-option"><input type="radio" name="exam-q23" value="1"> অন্য চালকের সাথে তথ্য বিনিময় করুন এবং প্রয়োজন হলে সংঘর্ষ রিপোর্ট দাখিল করুন</label>
+      <label class="quiz-option"><input type="radio" name="exam-q23" value="2"> শুধু ক্ষতি ৫,০০০ ডলারের বেশি হলে রিপোর্ট করুন</label>
+      <label class="quiz-option"><input type="radio" name="exam-q23" value="3"> কখনোই রিপোর্টের প্রয়োজন নেই</label>
+      <div class="exam-feedback quiz-feedback" id="exam-feedback-23"></div>
+    </fieldset>
+    <fieldset class="exam-question quiz-question" data-idx="24">
+      <legend class="sr-only">Question 25</legend>
+      <div class="exam-legend">25. হাই অকুপেন্সি ভেহিকল (HOV) লেনে কখন গাড়ি চালানো যায়?</div>
+      <label class="quiz-option"><input type="radio" name="exam-q24" value="0"> যাত্রী নির্বিশেষে যেকোনো সময়</label>
+      <label class="quiz-option"><input type="radio" name="exam-q24" value="1"> যখন আপনি পোস্ট করা যাত্রীসংখ্যার প্রয়োজনীয়তা পূরণ করেন, বা মোটরসাইকেলে থাকলে</label>
+      <label class="quiz-option"><input type="radio" name="exam-q24" value="2"> শুধু সপ্তাহান্তে</label>
+      <label class="quiz-option"><input type="radio" name="exam-q24" value="3"> HOV লেন শুধু ট্রাকের জন্য</label>
+      <div class="exam-feedback quiz-feedback" id="exam-feedback-24"></div>
+    </fieldset>
+    <fieldset class="exam-question quiz-question" data-idx="25">
+      <legend class="sr-only">Question 26</legend>
+      <div class="exam-legend">26. চিহ্নিত বা অচিহ্নিত ক্রসওয়াকে একজন পথচারী দেখলে আপনার কী করা উচিত?</div>
+      <label class="quiz-option"><input type="radio" name="exam-q25" value="0"> সবুজ বাতি থাকলে এগিয়ে যান</label>
+      <label class="quiz-option"><input type="radio" name="exam-q25" value="1"> পথচারীকে অগ্রাধিকার দিন</label>
+      <label class="quiz-option"><input type="radio" name="exam-q25" value="2"> শুধু তারা দৌড়ালে পথ ছাড়ুন</label>
+      <label class="quiz-option"><input type="radio" name="exam-q25" value="3"> হর্ন বাজিয়ে এগিয়ে যান</label>
+      <div class="exam-feedback quiz-feedback" id="exam-feedback-25"></div>
+    </fieldset>
+    <fieldset class="exam-question quiz-question" data-idx="26">
+      <legend class="sr-only">Question 27</legend>
+      <div class="exam-legend">27. সাধারণত সরকারি রাস্তায় আইনসম্মতভাবে গাড়ি চালানোর আগে কী প্রয়োজন?</div>
+      <label class="quiz-option"><input type="radio" name="exam-q26" value="0"> শুধু বৈধ যানবাহন নিবন্ধন</label>
+      <label class="quiz-option"><input type="radio" name="exam-q26" value="1"> বৈধ ড্রাইভার লাইসেন্স, নিবন্ধন, এবং আর্থিক দায়িত্বের প্রমাণ (বীমা)</label>
+      <label class="quiz-option"><input type="radio" name="exam-q26" value="2"> শুধু বীমা</label>
+      <label class="quiz-option"><input type="radio" name="exam-q26" value="3"> স্থানীয়ভাবে চালালে কিছুই না</label>
+      <div class="exam-feedback quiz-feedback" id="exam-feedback-26"></div>
+    </fieldset>
+    <fieldset class="exam-question quiz-question" data-idx="27">
+      <legend class="sr-only">Question 28</legend>
+      <div class="exam-legend">28. সাধারণত কখন আপনার হেডলাইট জ্বালানো প্রয়োজন?</div>
+      <label class="quiz-option"><input type="radio" name="exam-q27" value="0"> শুধু সম্পূর্ণ অন্ধকার হলে</label>
+      <label class="quiz-option"><input type="radio" name="exam-q27" value="1"> সূর্যাস্তের আধা ঘণ্টা পর থেকে সূর্যোদয়ের আধা ঘণ্টা আগে পর্যন্ত, এবং দৃশ্যমানতা খারাপ হলে যেকোনো সময়</label>
+      <label class="quiz-option"><input type="radio" name="exam-q27" value="2"> শুধু কুয়াশায়</label>
+      <label class="quiz-option"><input type="radio" name="exam-q27" value="3"> শুধু হাইওয়েতে</label>
+      <div class="exam-feedback quiz-feedback" id="exam-feedback-27"></div>
+    </fieldset>
+    <fieldset class="exam-question quiz-question" data-idx="28">
+      <legend class="sr-only">Question 29</legend>
+      <div class="exam-legend">29. অন্য একজন চালকের রোড রেজের সবচেয়ে নিরাপদ মোকাবিলা কী?</div>
+      <label class="quiz-option"><input type="radio" name="exam-q28" value="0"> অন্য চালকের মুখোমুখি হন</label>
+      <label class="quiz-option"><input type="radio" name="exam-q28" value="1"> চোখে চোখ না রাখুন, দূরত্ব বজায় রাখুন, প্রতিশোধ নেবেন না, এবং প্রয়োজনে পুলিশকে কল করুন</label>
+      <label class="quiz-option"><input type="radio" name="exam-q28" value="2"> তাদের ভয় দেখাতে গতি মেলান</label>
+      <label class="quiz-option"><input type="radio" name="exam-q28" value="3"> তাদের গন্তব্য পর্যন্ত অনুসরণ করুন</label>
+      <div class="exam-feedback quiz-feedback" id="exam-feedback-28"></div>
+    </fieldset>
+    <fieldset class="exam-question quiz-question" data-idx="29">
+      <legend class="sr-only">Question 30</legend>
+      <div class="exam-legend">30. মধ্যবর্তী লাইসেন্সধারীদের জন্য রাতের বেলা গাড়ি চালানোর বিধিনিষেধ সম্পর্কে সাধারণত কী সত্য?</div>
+      <label class="quiz-option"><input type="radio" name="exam-q29" value="0"> কোনো বিধিনিষেধ নেই</label>
+      <label class="quiz-option"><input type="radio" name="exam-q29" value="1"> তারা সাধারণত ভোর ১টা থেকে ৫টার মধ্যে গাড়ি চালাতে পারে না, যদি না একজন যোগ্য প্রাপ্তবয়স্কের সাথে থাকে</label>
+      <label class="quiz-option"><input type="radio" name="exam-q29" value="2"> বিধিনিষেধ শুধু সপ্তাহান্তে প্রযোজ্য</label>
+      <label class="quiz-option"><input type="radio" name="exam-q29" value="3"> বিধিনিষেধ বয়স বা লাইসেন্সের ধরন নির্বিশেষে সব চালকের জন্য প্রযোজ্য</label>
+      <div class="exam-feedback quiz-feedback" id="exam-feedback-29"></div>
+    </fieldset>
+    <fieldset class="exam-question quiz-question" data-idx="30">
+      <legend class="sr-only">Question 31</legend>
+      <div class="exam-legend">31. সামনে শোল্ডারে হ্যাজার্ড লাইট জ্বালানো একটি থেমে থাকা যানবাহন দেখলে আপনার কী করা উচিত?</div>
+      <label class="quiz-option"><input type="radio" name="exam-q30" value="0"> এটি উপেক্ষা করুন এবং একই গতিতে চলতে থাকুন</label>
+      <label class="quiz-option"><input type="radio" name="exam-q30" value="1"> সম্ভব হলে এক লেন সরে যান, অথবা গতি কমিয়ে সাবধানে পাশ কাটান</label>
+      <label class="quiz-option"><input type="radio" name="exam-q30" value="2"> সবসময় এর ঠিক পেছনে থামুন</label>
+      <label class="quiz-option"><input type="radio" name="exam-q30" value="3"> যত দ্রুত সম্ভব এর পাশ দিয়ে দ্রুত যান</label>
+      <div class="exam-feedback quiz-feedback" id="exam-feedback-30"></div>
+    </fieldset>
+    <fieldset class="exam-question quiz-question" data-idx="31">
+      <legend class="sr-only">Question 32</legend>
+      <div class="exam-legend">32. একটি সাদা আয়তক্ষেত্রাকার রাস্তার চিহ্ন সাধারণত কী নির্দেশ করে?</div>
+      <label class="quiz-option"><input type="radio" name="exam-q31" value="0"> একটি সতর্কতা</label>
+      <label class="quiz-option"><input type="radio" name="exam-q31" value="1"> নিয়ন্ত্রক তথ্য — একটি নিয়ম যা আপনাকে মানতে হবে</label>
+      <label class="quiz-option"><input type="radio" name="exam-q31" value="2"> গাইড বা দিকনির্দেশমূলক তথ্য</label>
+      <label class="quiz-option"><input type="radio" name="exam-q31" value="3"> একটি নির্মাণ এলাকা</label>
+      <div class="exam-feedback quiz-feedback" id="exam-feedback-31"></div>
+    </fieldset>
+    <fieldset class="exam-question quiz-question" data-idx="32">
+      <legend class="sr-only">Question 33</legend>
+      <div class="exam-legend">33. আসন্ন ট্রাফিকসহ একটি চৌরাস্তায় বামে মোড় নেওয়ার সময়, আপনার কখন মোড়টি সম্পূর্ণ করা উচিত?</div>
+      <label class="quiz-option"><input type="radio" name="exam-q32" value="0"> আপনার টার্ন সিগন্যাল চালু হওয়ার সাথে সাথে</label>
+      <label class="quiz-option"><input type="radio" name="exam-q32" value="1"> শুধু আসন্ন ট্রাফিকে যখন একটি পরিষ্কার, নিরাপদ ফাঁক থাকে</label>
+      <label class="quiz-option"><input type="radio" name="exam-q32" value="2"> আসন্ন ট্রাফিক নির্বিশেষে অবিলম্বে</label>
+      <label class="quiz-option"><input type="radio" name="exam-q32" value="3"> শুধু সমস্ত আসন্ন ট্রাফিক সম্পূর্ণভাবে থামার পরে</label>
+      <div class="exam-feedback quiz-feedback" id="exam-feedback-32"></div>
+    </fieldset>
+    <fieldset class="exam-question quiz-question" data-idx="33">
+      <legend class="sr-only">Question 34</legend>
+      <div class="exam-legend">34. ফ্রিওয়েতে একীভূত হওয়ার সবচেয়ে নিরাপদ উপায় কী?</div>
+      <label class="quiz-option"><input type="radio" name="exam-q33" value="0"> র‌্যাম্পের শেষে থামুন এবং একটি বড় ফাঁকের জন্য অপেক্ষা করুন</label>
+      <label class="quiz-option"><input type="radio" name="exam-q33" value="1"> ফ্রিওয়ে ট্রাফিকের গতির সাথে মিল রেখে একটি নিরাপদ ফাঁকে একীভূত হন</label>
+      <label class="quiz-option"><input type="radio" name="exam-q33" value="2"> ট্রাফিক নির্বিশেষে অবিলম্বে একীভূত হন</label>
+      <label class="quiz-option"><input type="radio" name="exam-q33" value="3"> ফ্রিওয়ে ট্রাফিককে সবসময় আপনাকে পথ ছাড়তে হবে</label>
+      <div class="exam-feedback quiz-feedback" id="exam-feedback-33"></div>
+    </fieldset>
+    <fieldset class="exam-question quiz-question" data-idx="34">
+      <legend class="sr-only">Question 35</legend>
+      <div class="exam-legend">35. ওয়াশিংটনের "ইমপ্লায়েড কনসেন্ট" আইনে চালকদের কী প্রয়োজন?</div>
+      <label class="quiz-option"><input type="radio" name="exam-q34" value="0"> চালকরা কোনো পরিণতি ছাড়াই সব সোবরাইটি পরীক্ষা প্রত্যাখ্যান করতে পারেন</label>
+      <label class="quiz-option"><input type="radio" name="exam-q34" value="1"> সন্দেহভাজন DUI-এর জন্য আইনগতভাবে গ্রেপ্তার হলে চালকদের একটি নিঃশ্বাস/রক্ত পরীক্ষা দিতে হবে, নাহলে লাইসেন্স স্থগিত হবে</label>
+      <label class="quiz-option"><input type="radio" name="exam-q34" value="2"> এটি শুধু বাণিজ্যিক চালকদের জন্য প্রযোজ্য</label>
+      <label class="quiz-option"><input type="radio" name="exam-q34" value="3"> এটি শুধু দোষী সাব্যস্ত হওয়ার পরে প্রযোজ্য</label>
+      <div class="exam-feedback quiz-feedback" id="exam-feedback-34"></div>
+    </fieldset>
+    <fieldset class="exam-question quiz-question" data-idx="35">
+      <legend class="sr-only">Question 36</legend>
+      <div class="exam-legend">36. বেশিরভাগ বর্তমান নির্দেশনা অনুযায়ী স্টিয়ারিংয়ের জন্য সুপারিশকৃত হাতের অবস্থান কী?</div>
+      <label class="quiz-option"><input type="radio" name="exam-q35" value="0"> ১২ এবং ৬</label>
+      <label class="quiz-option"><input type="radio" name="exam-q35" value="1"> ৯ এবং ৩ (বা ৮ এবং ৪)</label>
+      <label class="quiz-option"><input type="radio" name="exam-q35" value="2"> সবসময় এক হাত ১২-তে</label>
+      <label class="quiz-option"><input type="radio" name="exam-q35" value="3"> মোড় নেওয়ার সময় হাত হুইল স্পর্শ করা উচিত নয়</label>
+      <div class="exam-feedback quiz-feedback" id="exam-feedback-35"></div>
+    </fieldset>
+    <fieldset class="exam-question quiz-question" data-idx="36">
+      <legend class="sr-only">Question 37</legend>
+      <div class="exam-legend">37. আপনার কখন হাই-বিম হেডলাইট নিভিয়ে দেওয়া উচিত?</div>
+      <label class="quiz-option"><input type="radio" name="exam-q36" value="0"> কখনোই না</label>
+      <label class="quiz-option"><input type="radio" name="exam-q36" value="1"> আসন্ন ট্রাফিকের কাছে যাওয়ার সময় বা অন্য যানবাহনকে কাছ থেকে অনুসরণ করার সময়</label>
+      <label class="quiz-option"><input type="radio" name="exam-q36" value="2"> শুধু কুয়াশায়</label>
+      <label class="quiz-option"><input type="radio" name="exam-q36" value="3"> শুধু হাইওয়েতে</label>
+      <div class="exam-feedback quiz-feedback" id="exam-feedback-36"></div>
+    </fieldset>
+    <fieldset class="exam-question quiz-question" data-idx="37">
+      <legend class="sr-only">Question 38</legend>
+      <div class="exam-legend">38. গাড়ি চালানোর সময় আপনার ব্রেক ব্যর্থ হলে সুপারিশকৃত প্রতিক্রিয়া কী?</div>
+      <label class="quiz-option"><input type="radio" name="exam-q37" value="0"> সাথে সাথে ইঞ্জিন বন্ধ করুন</label>
+      <label class="quiz-option"><input type="radio" name="exam-q37" value="1"> ব্রেক পাম্প করুন, গিয়ার নামান, এবং ধীরে ধীরে পার্কিং ব্রেক ব্যবহার করার সময় একটি নিরাপদ স্থানে স্টিয়ার করুন</label>
+      <label class="quiz-option"><input type="radio" name="exam-q37" value="2"> চলন্ত গাড়ি থেকে লাফ দিন</label>
+      <label class="quiz-option"><input type="radio" name="exam-q37" value="3"> একটি সার্ভিস স্টেশনে দ্রুত পৌঁছাতে গতি বাড়ান</label>
+      <div class="exam-feedback quiz-feedback" id="exam-feedback-37"></div>
+    </fieldset>
+    <fieldset class="exam-question quiz-question" data-idx="38">
+      <legend class="sr-only">Question 39</legend>
+      <div class="exam-legend">39. গাড়ি চালানোর সময় "টার্গেট ফিক্সেশন"-এর বিপদ কী?</div>
+      <label class="quiz-option"><input type="radio" name="exam-q38" value="0"> এটি আপনাকে বাধা এড়াতে সহজ করে</label>
+      <label class="quiz-option"><input type="radio" name="exam-q38" value="1"> একটি বিপদের দিকে তাকিয়ে থাকলে আপনি এর থেকে দূরে না গিয়ে এর দিকেই স্টিয়ার করতে পারেন</label>
+      <label class="quiz-option"><input type="radio" name="exam-q38" value="2"> এটি গাড়ি চালানোর ওপর কোনো প্রকৃত প্রভাব ফেলে না</label>
+      <label class="quiz-option"><input type="radio" name="exam-q38" value="3"> এটি শুধু মোটরসাইকেল আরোহীদের প্রভাবিত করে</label>
+      <div class="exam-feedback quiz-feedback" id="exam-feedback-38"></div>
+    </fieldset>
+    <fieldset class="exam-question quiz-question" data-idx="39">
+      <legend class="sr-only">Question 40</legend>
+      <div class="exam-legend">40. লেন পরিবর্তনের আগে আপনার অন্ধ অঞ্চল পরীক্ষা (কাঁধের ওপর দিয়ে দেখা) করার উদ্দেশ্য কী?</div>
+      <label class="quiz-option"><input type="radio" name="exam-q39" value="0"> আয়না সঠিকভাবে সমন্বয় করা থাকলে এটি ঐচ্ছিক</label>
+      <label class="quiz-option"><input type="radio" name="exam-q39" value="1"> শুধু আয়না দিয়ে দেখা যায় না এমন যানবাহন বা বিপদ শনাক্ত করা</label>
+      <label class="quiz-option"><input type="radio" name="exam-q39" value="2"> এটি শুধু নতুন চালকদের জন্য প্রয়োজন</label>
+      <label class="quiz-option"><input type="radio" name="exam-q39" value="3"> এটি শুধু হাইওয়েতে প্রয়োজন</label>
+      <div class="exam-feedback quiz-feedback" id="exam-feedback-39"></div>
+    </fieldset>
+    <fieldset class="exam-question quiz-question" data-idx="40">
+      <legend class="sr-only">Question 41</legend>
+      <div class="exam-legend">41. বিনোদনমূলক ব্যবহার আইনসম্মত হলেও, গাঁজা ব্যবহার আপনার আইনসম্মতভাবে গাড়ি চালানোর ক্ষমতাকে কীভাবে প্রভাবিত করে?</div>
+      <label class="quiz-option"><input type="radio" name="exam-q40" value="0"> এটি আইনসম্মতভাবে গাড়ি চালানোর ক্ষমতার ওপর কোনো প্রভাব ফেলে না</label>
+      <label class="quiz-option"><input type="radio" name="exam-q40" value="1"> যেকোনো পরিমাণ গাঁজা ব্যবহারের পর গাড়ি চালানো সব বয়সের জন্য বেআইনি</label>
+      <label class="quiz-option"><input type="radio" name="exam-q40" value="2"> এটি শুধু ২১ বছরের কম বয়সী চালকদের জন্য বেআইনি</label>
+      <label class="quiz-option"><input type="radio" name="exam-q40" value="3"> আপনি ঠিক অনুভব করলে এটি আইনসম্মত</label>
+      <div class="exam-feedback quiz-feedback" id="exam-feedback-40"></div>
+    </fieldset>
+    <fieldset class="exam-question quiz-question" data-idx="41">
+      <legend class="sr-only">Question 42</legend>
+      <div class="exam-legend">42. দীর্ঘ ভ্রমণে গাড়ি চালানোর সময় আপনি তন্দ্রাচ্ছন্ন বোধ করলে আপনার কী করা উচিত?</div>
+      <label class="quiz-option"><input type="radio" name="exam-q41" value="0"> রেডিওর শব্দ বাড়ান এবং চালাতে থাকুন</label>
+      <label class="quiz-option"><input type="radio" name="exam-q41" value="1"> একটি নিরাপদ স্থানে থামুন এবং বিশ্রাম নিন, অথবা চালক পরিবর্তন করুন</label>
+      <label class="quiz-option"><input type="radio" name="exam-q41" value="2"> জানালা সামান্য খুলুন এবং চালিয়ে যান</label>
+      <label class="quiz-option"><input type="radio" name="exam-q41" value="3"> গন্তব্যে দ্রুত পৌঁছাতে দ্রুত চালান</label>
+      <div class="exam-feedback quiz-feedback" id="exam-feedback-41"></div>
+    </fieldset>
+    <fieldset class="exam-question quiz-question" data-idx="42">
+      <legend class="sr-only">Question 43</legend>
+      <div class="exam-legend">43. একটি ভেঙে পড়া বিদ্যুৎ লাইন আপনার গাড়ির ওপর পড়লে আপনার কী করা উচিত?</div>
+      <label class="quiz-option"><input type="radio" name="exam-q42" value="0"> ক্ষতি পরীক্ষা করতে সাথে সাথে বের হন</label>
+      <label class="quiz-option"><input type="radio" name="exam-q42" value="1"> গাড়ির ভেতরে থাকুন এবং ৯১১-এ কল করুন, যদি না আগুন লাগে</label>
+      <label class="quiz-option"><input type="radio" name="exam-q42" value="2"> গাড়ির ফ্রেম স্পর্শ করে দেখুন এটি সচল কিনা</label>
+      <label class="quiz-option"><input type="radio" name="exam-q42" value="3"> সাহায্যের জন্য একটি জানালা খুলে হাত বাড়ান</label>
+      <div class="exam-feedback quiz-feedback" id="exam-feedback-42"></div>
+    </fieldset>
+    <fieldset class="exam-question quiz-question" data-idx="43">
+      <legend class="sr-only">Question 44</legend>
+      <div class="exam-legend">44. শোল্ডারে কাজ করা, অ্যাম্বার লাইট জ্বলা একটি থেমে থাকা টো ট্রাক বা ইউটিলিটি যানবাহনের কাছে আসা চালকদের কী করা প্রয়োজন?</div>
+      <label class="quiz-option"><input type="radio" name="exam-q43" value="0"> কোনো বিশেষ পদক্ষেপ প্রয়োজন নেই</label>
+      <label class="quiz-option"><input type="radio" name="exam-q43" value="1"> সম্ভব হলে এক লেন সরে যান, অথবা গতি কমিয়ে সতর্কতার সাথে এগিয়ে যান — মুভ ওভার আইনের মতো</label>
+      <label class="quiz-option"><input type="radio" name="exam-q43" value="2"> শুধু কর্মী দেখা গেলে গতি কমান</label>
+      <label class="quiz-option"><input type="radio" name="exam-q43" value="3"> এলাকা দ্রুত পার হতে গতি বাড়ান</label>
+      <div class="exam-feedback quiz-feedback" id="exam-feedback-43"></div>
+    </fieldset>
+    <fieldset class="exam-question quiz-question" data-idx="44">
+      <legend class="sr-only">Question 45</legend>
+      <div class="exam-legend">45. একজন মোটরসাইকেল চালকের সাথে রাস্তা ভাগ করার সময়, আপনার কী মনে রাখা উচিত?</div>
+      <label class="quiz-option"><input type="radio" name="exam-q44" value="0"> মোটরসাইকেল গাড়ির চেয়ে সরু লেন প্রস্থের অধিকারী</label>
+      <label class="quiz-option"><input type="radio" name="exam-q44" value="1"> অন্য যেকোনো যানবাহনের মতো মোটরসাইকেলও তার সম্পূর্ণ লেন প্রস্থের অধিকারী</label>
+      <label class="quiz-option"><input type="radio" name="exam-q44" value="2"> মোটরসাইকেল একপাশে চললে আপনি এর সাথে লেন ভাগ করতে পারেন</label>
+      <label class="quiz-option"><input type="radio" name="exam-q44" value="3"> অন্ধ অঞ্চলে মোটরসাইকেল চালকদের জন্য পরীক্ষা করার প্রয়োজন নেই</label>
+      <div class="exam-feedback quiz-feedback" id="exam-feedback-44"></div>
+    </fieldset>
+    <fieldset class="exam-question quiz-question" data-idx="45">
+      <legend class="sr-only">Question 46</legend>
+      <div class="exam-legend">46. আপনি যে সাইকেল আরোহীকে ওভারটেক করছেন তার এবং আপনার যানবাহনের মধ্যে সুপারিশকৃত দূরত্ব কত?</div>
+      <label class="quiz-option"><input type="radio" name="exam-q45" value="0"> কোনো নির্দিষ্ট দূরত্বের প্রয়োজন নেই</label>
+      <label class="quiz-option"><input type="radio" name="exam-q45" value="1"> অন্তত ৩ ফুট</label>
+      <label class="quiz-option"><input type="radio" name="exam-q45" value="2"> ৬ ইঞ্চি</label>
+      <label class="quiz-option"><input type="radio" name="exam-q45" value="3"> যা স্বাচ্ছন্দ্যজনক মনে হয়</label>
+      <div class="exam-feedback quiz-feedback" id="exam-feedback-45"></div>
+    </fieldset>
+    <fieldset class="exam-question quiz-question" data-idx="46">
+      <legend class="sr-only">Question 47</legend>
+      <div class="exam-legend">47. লেন-কিপিং বা অটোমেটিক ব্রেকিংয়ের মতো একটি যানবাহনের অ্যাডভান্সড ড্রাইভার অ্যাসিস্ট্যান্স সিস্টেমের (ADAS) উদ্দেশ্য কী?</div>
+      <label class="quiz-option"><input type="radio" name="exam-q46" value="0"> চালকের মনোযোগ ও বিচার সম্পূর্ণরূপে প্রতিস্থাপন করা</label>
+      <label class="quiz-option"><input type="radio" name="exam-q46" value="1"> চালককে হস্তক্ষেপ করা, সতর্ক করা বা সহায়তা করা — মনোযোগী গাড়ি চালানো প্রতিস্থাপন করা নয়</label>
+      <label class="quiz-option"><input type="radio" name="exam-q46" value="2"> এগুলো শুধু ঘণ্টায় ৬০ মাইলের ওপরে কাজ করে</label>
+      <label class="quiz-option"><input type="radio" name="exam-q46" value="3"> এগুলোর কোনো প্রকৃত সীমাবদ্ধতা নেই</label>
+      <div class="exam-feedback quiz-feedback" id="exam-feedback-46"></div>
+    </fieldset>
+    <div class="exam-actions">
+      <button type="button" onclick="checkExam()">আমার পরীক্ষা যাচাই করুন</button>
+      <button type="button" class="secondary" onclick="resetExam()">রিসেট</button>
+    </div>
+    <div class="exam-result quiz-result" id="exam-result"></div>
+</form>
+</section>
+
+
+
 <section id="source-illustrations" class="source-illustrations">
 <h2>মূল দৃষ্টান্ত</h2>
 <p>এই চিত্রগুলো মূল ওয়াশিংটন ড্রাইভার গাইডের ইংরেজি পাতা থেকে হুবহু পুনরুৎপাদন করা হয়েছে, অডিট ও যাচাইয়ের জন্য। ছবির ভেতরের লেখা তাই ইংরেজিতেই থাকে — এই গাইডের বাংলা পাঠ্যাংশে একই তথ্য অনুবাদ করা আছে। উৎস-পৃষ্ঠা নম্বরগুলো মূল PDF নির্দেশ করে। প্রকৃত রাস্তার চিহ্নে ব্যবহৃত ইংরেজি শব্দ সাইন আর্টওয়ার্কে অপরিবর্তিত রাখা হয়েছে।</p>
@@ -2040,5 +2491,61 @@ section h3:first-child { margin-top: 0; }
 <figure class="source-art"><img src="assets/source-pages/page-170.jpg" alt="পিচ্ছিল রাস্তা; মূল PDF পৃষ্ঠা 170"><figcaption>পিচ্ছিল রাস্তা — মূল ইংরেজি পাতার প্রতিলিপি, PDF পৃষ্ঠা 170।</figcaption></figure>
 <figure class="source-art"><img src="assets/source-pages/page-180.jpg" alt="আইন প্রয়োগকারী সংস্থা ও গাড়ি থামানো হলে; মূল PDF পৃষ্ঠা 180"><figcaption>আইন প্রয়োগকারী সংস্থা ও গাড়ি থামানো হলে — মূল ইংরেজি পাতার প্রতিলিপি, PDF পৃষ্ঠা 180।</figcaption></figure>
 </section>
+<script>
+function gradeQuiz() { const answers = {q1:'a', q2:'b', q3:'a', q4:'a', q5:'a'}; let score = 0; for (const [q, answer] of Object.entries(answers)) { const selected = document.querySelector('input[name="' + q + '"]:checked'); if (selected && selected.value === answer) score++; } const result = document.getElementById('quiz-result'); result.textContent = document.documentElement.lang === 'bn' ? ('আপনার স্কোর: ' + score + '/5') : ('Your score: ' + score + '/5'); }
+
+const EXAM_DATA = [{"correct":1,"explEn":"Washington's legal BAC limit for drivers 21 and older is 0.08%. Impairment can begin well below that level, so it's not a safe target — just a legal one.","explBn":"ওয়াশিংটনে ২১ বছর বা তার বেশি বয়সী চালকদের জন্য আইনগত BAC সীমা ০.০৮%। এর অনেক নিচেও প্রতিবন্ধকতা শুরু হতে পারে, তাই এটি নিরাপদ লক্ষ্য নয় — শুধু আইনগত সীমা।"},{"correct":2,"explEn":"When vehicles arrive at an uncontrolled intersection at the same time, the vehicle on the right has the right-of-way.","explBn":"একটি অনিয়ন্ত্রিত চৌরাস্তায় যানবাহনগুলো একই সময়ে পৌঁছালে, ডান দিকের যানবাহনের অগ্রাধিকার থাকে।"},{"correct":1,"explEn":"A flashing yellow light means slow down and proceed with caution — treat the intersection as uncontrolled and yield as needed, but you don't need to come to a full stop.","explBn":"একটি জ্বলজ্বল করা হলুদ বাতির অর্থ হলো গতি কমিয়ে সতর্কতার সাথে এগিয়ে যাওয়া — চৌরাস্তাটিকে অনিয়ন্ত্রিত হিসেবে বিবেচনা করুন এবং প্রয়োজন অনুযায়ী পথ ছেড়ে দিন, তবে সম্পূর্ণ থামার প্রয়োজন নেই।"},{"correct":0,"explEn":"You should signal at least 100 feet before turning so other drivers, cyclists, and pedestrians have time to react.","explBn":"মোড় নেওয়ার অন্তত ১০০ ফুট আগে সিগন্যাল দেওয়া উচিত, যাতে অন্য চালক, সাইকেল আরোহী ও পথচারীরা প্রতিক্রিয়া জানানোর সময় পান।"},{"correct":1,"explEn":"At least a 3-second following distance gives you time to see, analyze, and respond to hazards. Add more time in poor weather or heavy traffic.","explBn":"অন্তত ৩ সেকেন্ডের অনুসরণ দূরত্ব আপনাকে বিপদ দেখা, বিশ্লেষণ করা এবং প্রতিক্রিয়া জানানোর সময় দেয়। খারাপ আবহাওয়া বা ভারী ট্রাফিকে আরও বেশি সময় রাখুন।"},{"correct":1,"explEn":"You must stop for a school bus with flashing red lights regardless of direction, unless the road has a median or barrier that physically separates your lane from the bus's lane.","explBn":"লাল বাতি জ্বলা স্কুল বাসের জন্য আপনার দিক নির্বিশেষে থামতে হবে, যদি না রাস্তায় এমন কোনো মধ্যক বা বাধা থাকে যা আপনার লেনকে বাসের লেন থেকে শারীরিকভাবে আলাদা করে।"},{"correct":1,"explEn":"Stop and wait when signals are flashing — never try to beat a train across the tracks. Trains take much longer to stop than they appear to.","explBn":"সংকেত জ্বলজ্বল করলে থামুন এবং অপেক্ষা করুন — কখনো ট্রেনকে হারিয়ে ট্র্যাক পার হওয়ার চেষ্টা করবেন না। ট্রেন থামতে যতটা মনে হয় তার চেয়ে অনেক বেশি সময় নেয়।"},{"correct":1,"explEn":"When you see a stopped emergency or service vehicle with flashing lights, move over one lane if you safely can, or slow down well below the posted limit.","explBn":"ফ্ল্যাশিং লাইটসহ থেমে থাকা কোনো জরুরি বা সেবা যানবাহন দেখলে, নিরাপদে সম্ভব হলে এক লেন সরে যান, অথবা পোস্ট করা গতিসীমার অনেক নিচে গতি কমান।"},{"correct":2,"explEn":"Washington law requires every person in a moving vehicle to be properly restrained by a seat belt or an approved child safety seat.","explBn":"ওয়াশিংটন আইন অনুযায়ী চলন্ত যানবাহনে থাকা প্রত্যেককে সিট বেল্ট বা অনুমোদিত শিশু নিরাপত্তা আসন দ্বারা সঠিকভাবে সংযত থাকতে হবে।"},{"correct":1,"explEn":"Zipper merging means using both lanes until the designated merge point, then alternating one vehicle from each lane, like the teeth of a zipper. It improves traffic flow and reduces sudden lane changes.","explBn":"জিপার মার্জিং মানে নির্ধারিত একীভূতকরণ বিন্দু পর্যন্ত উভয় লেন ব্যবহার করা, তারপর জিপারের দাঁতের মতো প্রতিটি লেন থেকে পালাক্রমে একটি করে যানবাহন প্রবেশ করানো। এটি ট্রাফিক প্রবাহ উন্নত করে ও আকস্মিক লেন পরিবর্তন কমায়।"},{"correct":2,"explEn":"Ease off the accelerator and keep the wheel straight. Braking hard or turning sharply can make you lose control since your tires aren't gripping the road.","explBn":"অ্যাক্সিলারেটর থেকে পা সরিয়ে নিন এবং হুইল সোজা রাখুন। জোরে ব্রেক করা বা দ্রুত ঘোরালে নিয়ন্ত্রণ হারাতে পারেন, কারণ আপনার টায়ার রাস্তায় গ্রিপ করছে না।"},{"correct":1,"explEn":"Passing on the right is legal on roads with multiple lanes going the same direction, or one-way streets, as long as it can be done safely.","explBn":"একই দিকে একাধিক লেনের রাস্তায় বা ওয়ান-ওয়ে রাস্তায়, নিরাপদে করা গেলে ডান দিক দিয়ে ওভারটেক করা আইনসম্মত।"},{"correct":1,"explEn":"Pull over to the right edge of the road and stop until the emergency vehicle has passed, unless directed otherwise by an officer.","explBn":"একজন কর্মকর্তা ভিন্ন নির্দেশ না দিলে, রাস্তার ডান প্রান্তে সরে গিয়ে থামুন যতক্ষণ না জরুরি যানবাহনটি পার হয়ে যায়।"},{"correct":1,"explEn":"A solid yellow line on your side means passing is not allowed. A broken (dashed) yellow line on your side means passing is allowed when it's safe.","explBn":"আপনার পাশে একটি অবিচ্ছিন্ন হলুদ রেখার অর্থ হলো ওভারটেক করা যাবে না। আপনার পাশে একটি ভাঙা (ড্যাশড) হলুদ রেখার অর্থ হলো নিরাপদ হলে ওভারটেক করা যায়।"},{"correct":2,"explEn":"Large trucks have big blind zones on both sides, in front, and behind. If you can't see the truck driver's mirrors, they likely can't see you.","explBn":"বড় ট্রাকের উভয় পাশে, সামনে ও পেছনে বড় অন্ধ অঞ্চল থাকে। আপনি যদি ট্রাক চালকের আয়না দেখতে না পান, তাহলে সম্ভবত তিনিও আপনাকে দেখতে পাচ্ছেন না।"},{"correct":0,"explEn":"A red curb means no stopping, standing, or parking is allowed at any time.","explBn":"একটি লাল কার্বের অর্থ হলো যেকোনো সময় থামা, দাঁড়ানো বা পার্কিং করা নিষেধ।"},{"correct":1,"explEn":"The vehicle on the right goes first when two vehicles reach a four-way stop at the same time.","explBn":"দুটি যানবাহন একই সময়ে একটি চার-মুখী স্টপে পৌঁছালে, ডান দিকের যানবাহন আগে যাবে।"},{"correct":1,"explEn":"Driving with a suspended license can lead to arrest and having your vehicle impounded, in addition to further license consequences.","explBn":"স্থগিত লাইসেন্স নিয়ে গাড়ি চালানোর ফলে গ্রেপ্তার ও যানবাহন জব্দ হতে পারে, পাশাপাশি লাইসেন্সের আরও পরিণতিও হতে পারে।"},{"correct":1,"explEn":"Mirrors don't show everything — check your surroundings directly, including looking over your shoulder, before and while backing up.","explBn":"আয়না সবকিছু দেখায় না — পেছনে যাওয়ার আগে ও যাওয়ার সময় কাঁধের ওপর দিয়ে দেখাসহ সরাসরি আপনার চারপাশ পরীক্ষা করুন।"},{"correct":2,"explEn":"The basic speed rule means you can be ticketed for driving too fast for conditions — like slippery roads or fog — even if you're under the posted speed limit.","explBn":"বেসিক স্পিড রুলের অর্থ হলো পরিস্থিতির জন্য খুব দ্রুত গাড়ি চালানোর জন্য আপনি টিকিট পেতে পারেন — যেমন পিচ্ছিল রাস্তা বা কুয়াশা — এমনকি পোস্ট করা গতিসীমার নিচে থাকলেও।"},{"correct":0,"explEn":"You cannot hold any electronic device while driving, with a narrow exception for reporting an emergency. Hands-free use is allowed, but the device can't be in your hand.","explBn":"গাড়ি চালানোর সময় আপনি কোনো ইলেকট্রনিক ডিভাইস হাতে ধরতে পারবেন না, শুধু জরুরি অবস্থা রিপোর্ট করার একটি সীমিত ব্যতিক্রম ছাড়া। হ্যান্ডস-ফ্রি ব্যবহার অনুমোদিত, তবে ডিভাইসটি হাতে থাকতে পারবে না।"},{"correct":1,"explEn":"Yellow diamond-shaped signs are warning signs — they alert you to hazards or changing conditions ahead, like curves, crossings, or merging traffic.","explBn":"হলুদ হীরা-আকৃতির চিহ্নগুলো সতর্কতামূলক চিহ্ন — এগুলো সামনে বাঁক, ক্রসিং বা একীভূত হওয়া ট্রাফিকের মতো বিপদ বা পরিবর্তনশীল পরিস্থিতি সম্পর্কে সতর্ক করে।"},{"correct":1,"explEn":"Yield to traffic already circulating in the roundabout, enter when there's a safe gap, and travel counterclockwise around the central island.","explBn":"গোলচত্বরে ইতিমধ্যে চলাচলকারী ট্রাফিককে পথ ছাড়ুন, নিরাপদ ফাঁক পেলে প্রবেশ করুন, এবং কেন্দ্রীয় দ্বীপের চারপাশে ঘড়ির কাঁটার বিপরীতে চলুন।"},{"correct":1,"explEn":"Exchange contact, license, and insurance information, and file the required state collision report within the legal timeframe if an officer doesn't do it for you.","explBn":"যোগাযোগ, লাইসেন্স ও বীমার তথ্য বিনিময় করুন, এবং কোনো কর্মকর্তা এটি না করলে আইনগত সময়সীমার মধ্যে প্রয়োজনীয় রাজ্য সংঘর্ষ রিপোর্ট দাখিল করুন।"},{"correct":1,"explEn":"You may use an HOV lane when your vehicle meets the posted minimum occupancy (often 2 or more people), or if you're on a motorcycle — check the posted sign for the exact requirement.","explBn":"আপনার যানবাহন পোস্ট করা সর্বনিম্ন যাত্রীসংখ্যা (প্রায়ই ২ বা তার বেশি) পূরণ করলে, অথবা মোটরসাইকেলে থাকলে আপনি HOV লেন ব্যবহার করতে পারেন — সঠিক প্রয়োজনীয়তার জন্য পোস্ট করা চিহ্ন দেখুন।"},{"correct":1,"explEn":"Pedestrians in a crosswalk — marked or unmarked — always have the right-of-way. Yield to them regardless of your signal.","explBn":"ক্রসওয়াকে থাকা পথচারীরা — চিহ্নিত বা অচিহ্নিত — সবসময় অগ্রাধিকার পান। আপনার সিগন্যাল যাই হোক না কেন তাদের পথ ছেড়ে দিন।"},{"correct":1,"explEn":"You need a valid driver license, current vehicle registration, and proof of financial responsibility (typically insurance) to legally drive.","explBn":"আইনসম্মতভাবে গাড়ি চালাতে আপনার একটি বৈধ ড্রাইভার লাইসেন্স, বর্তমান যানবাহন নিবন্ধন, এবং আর্থিক দায়িত্বের প্রমাণ (সাধারণত বীমা) প্রয়োজন।"},{"correct":1,"explEn":"Headlights are required from half an hour after sunset to half an hour before sunrise, plus anytime visibility drops due to rain, fog, or other conditions.","explBn":"সূর্যাস্তের আধা ঘণ্টা পর থেকে সূর্যোদয়ের আধা ঘণ্টা আগে পর্যন্ত, এবং বৃষ্টি, কুয়াশা বা অন্যান্য কারণে দৃশ্যমানতা কমে গেলে যেকোনো সময় হেডলাইট প্রয়োজন।"},{"correct":1,"explEn":"Distance yourself physically and mentally: avoid eye contact and aggressive gestures, keep space, and call 911 if you feel unsafe or are being followed.","explBn":"শারীরিক ও মানসিকভাবে দূরত্ব বজায় রাখুন: চোখে চোখ রাখা ও আক্রমণাত্মক ইশারা এড়িয়ে চলুন, দূরত্ব বজায় রাখুন, এবং অনিরাপদ বোধ করলে বা অনুসরণ করা হলে ৯১১-এ কল করুন।"},{"correct":1,"explEn":"Intermediate license holders generally can't drive between 1 a.m. and 5 a.m. unless accompanied by a parent, guardian, or licensed driver at least 25 years old — this restriction expires after a year of safe driving.","explBn":"মধ্যবর্তী লাইসেন্সধারীরা সাধারণত ভোর ১টা থেকে ৫টার মধ্যে গাড়ি চালাতে পারে না, যদি না একজন পিতামাতা, অভিভাবক, বা অন্তত ২৫ বছর বয়সী লাইসেন্সপ্রাপ্ত চালকের সাথে থাকে — নিরাপদে গাড়ি চালানোর এক বছর পর এই বিধিনিষেধের মেয়াদ শেষ হয়।"},{"correct":1,"explEn":"Treat any stopped vehicle with hazards as a potential hazard: move over a lane if you safely can, or slow down and pass with extra caution.","explBn":"হ্যাজার্ড জ্বালানো যেকোনো থেমে থাকা যানবাহনকে সম্ভাব্য বিপদ হিসেবে বিবেচনা করুন: নিরাপদে সম্ভব হলে এক লেন সরে যান, অথবা গতি কমিয়ে অতিরিক্ত সতর্কতার সাথে পাশ কাটান।"},{"correct":1,"explEn":"White signs are regulatory — they tell you rules you must follow, like speed limits, stop signs, and no-turn signs.","explBn":"সাদা চিহ্নগুলো নিয়ন্ত্রক — এগুলো আপনাকে মানতে হবে এমন নিয়ম জানায়, যেমন গতিসীমা, স্টপ সাইন এবং মোড় নিষেধ চিহ্ন।"},{"correct":1,"explEn":"Wait in the intersection (if needed) until there's a safe gap in oncoming traffic, then complete your turn smoothly.","explBn":"(প্রয়োজনে) চৌরাস্তায় অপেক্ষা করুন যতক্ষণ না আসন্ন ট্রাফিকে একটি নিরাপদ ফাঁক আসে, তারপর মসৃণভাবে আপনার মোড় সম্পূর্ণ করুন।"},{"correct":1,"explEn":"Use the on-ramp to build up speed to match freeway traffic, then merge into a safe gap using your signal and mirrors — freeway traffic already has the right-of-way.","explBn":"ফ্রিওয়ে ট্রাফিকের গতির সাথে মিল রাখতে অন-র‌্যাম্প ব্যবহার করুন, তারপর সিগন্যাল ও আয়না ব্যবহার করে একটি নিরাপদ ফাঁকে একীভূত হন — ফ্রিওয়ে ট্রাফিকের ইতিমধ্যে অগ্রাধিকার রয়েছে।"},{"correct":1,"explEn":"By driving in Washington, you've already agreed to submit to a breath or blood test if lawfully arrested for suspected DUI. Refusing carries its own license suspension.","explBn":"ওয়াশিংটনে গাড়ি চালানোর মাধ্যমে, আপনি ইতিমধ্যে সম্মত হয়েছেন যে সন্দেহভাজন DUI-এর জন্য আইনগতভাবে গ্রেপ্তার হলে একটি নিঃশ্বাস বা রক্ত পরীক্ষা দেবেন। প্রত্যাখ্যান করলে নিজস্ব লাইসেন্স স্থগিতাদেশ হয়।"},{"correct":1,"explEn":"The recommended position is 9 and 3 (or 8 and 4), imagining the wheel as a clock face — this gives the best control and keeps your hands clear of the airbag.","explBn":"সুপারিশকৃত অবস্থান হলো ৯ এবং ৩ (বা ৮ এবং ৪), হুইলকে একটি ঘড়ির মুখ হিসেবে কল্পনা করে — এটি সর্বোত্তম নিয়ন্ত্রণ দেয় এবং আপনার হাতকে এয়ারব্যাগ থেকে দূরে রাখে।"},{"correct":1,"explEn":"Dim your high beams for oncoming traffic and when following closely behind another vehicle, so you don't blind other drivers.","explBn":"আসন্ন ট্রাফিকের জন্য এবং অন্য যানবাহনের কাছ থেকে অনুসরণ করার সময় আপনার হাই বিম নিভিয়ে দিন, যাতে অন্য চালকদের চোখে ধাঁধা না লাগে।"},{"correct":1,"explEn":"Pump the brake pedal (it may still have some pressure), shift to a lower gear, and gradually apply the parking brake while steering toward a safe place to stop.","explBn":"ব্রেক প্যাডেল পাম্প করুন (এতে এখনও কিছু চাপ থাকতে পারে), নিচের গিয়ারে নামান, এবং একটি নিরাপদ স্থানের দিকে স্টিয়ার করার সময় ধীরে ধীরে পার্কিং ব্রেক প্রয়োগ করুন।"},{"correct":1,"explEn":"Target fixation means you tend to steer toward whatever you're staring at. If you fixate on a hazard, look instead toward your intended safe path.","explBn":"টার্গেট ফিক্সেশনের অর্থ হলো আপনি যা দিকে তাকিয়ে থাকেন সেদিকেই স্টিয়ার করার প্রবণতা তৈরি হয়। কোনো বিপদের দিকে তাকিয়ে থাকলে, পরিবর্তে আপনার নিরাপদ পথের দিকে তাকান।"},{"correct":1,"explEn":"Even well-adjusted mirrors leave blind zones. A quick shoulder check confirms whether a vehicle, cyclist, or pedestrian is in the space you can't see.","explBn":"এমনকি ভালোভাবে সমন্বয় করা আয়নাতেও অন্ধ অঞ্চল থেকে যায়। একটি দ্রুত কাঁধের ওপর দিয়ে দেখা নিশ্চিত করে যে আপনি দেখতে না পারা জায়গায় কোনো যানবাহন, সাইকেল আরোহী বা পথচারী আছে কিনা।"},{"correct":1,"explEn":"Even though recreational cannabis use is legal for adults 21+, driving after using any cannabis is illegal for drivers of all ages — there's no legally safe amount for driving.","explBn":"যদিও ২১ বছরের বেশি বয়সীদের জন্য বিনোদনমূলক গাঁজা ব্যবহার আইনসম্মত, তবে যেকোনো পরিমাণ গাঁজা ব্যবহারের পর গাড়ি চালানো সব বয়সের চালকের জন্য বেআইনি — গাড়ি চালানোর জন্য কোনো আইনগতভাবে নিরাপদ পরিমাণ নেই।"},{"correct":1,"explEn":"Radio volume and fresh air don't reliably fight drowsiness. Pull over somewhere safe and take a real rest, or switch to another driver if possible.","explBn":"রেডিওর আওয়াজ ও তাজা বাতাস নির্ভরযোগ্যভাবে তন্দ্রা প্রতিরোধ করে না। কোনো নিরাপদ জায়গায় থামুন এবং প্রকৃত বিশ্রাম নিন, অথবা সম্ভব হলে অন্য চালকে পরিবর্তন করুন।"},{"correct":1,"explEn":"Stay inside the vehicle and call for help — the vehicle can act as insulation from the ground. Only exit (with a jump, landing with both feet together, avoiding contact with the vehicle and ground at the same time) if there's fire and you have no other choice.","explBn":"গাড়ির ভেতরে থাকুন এবং সাহায্যের জন্য কল করুন — গাড়িটি মাটি থেকে নিরোধক হিসেবে কাজ করতে পারে। শুধুমাত্র আগুন লাগলে এবং অন্য কোনো উপায় না থাকলে বের হন (লাফিয়ে, উভয় পা একসাথে রেখে, গাড়ি ও মাটি একসাথে স্পর্শ এড়িয়ে)।"},{"correct":1,"explEn":"Washington's Move Over law extends to tow trucks and utility/maintenance vehicles with flashing lights — treat them the same as emergency vehicles.","explBn":"ওয়াশিংটনের মুভ ওভার আইন ফ্ল্যাশিং লাইটসহ টো ট্রাক এবং ইউটিলিটি/রক্ষণাবেক্ষণ যানবাহন পর্যন্ত বিস্তৃত — এগুলোকে জরুরি যানবাহনের মতোই বিবেচনা করুন।"},{"correct":1,"explEn":"Motorcyclists are entitled to a full lane, the same as any other vehicle. Never share a lane alongside a motorcyclist, even if they're riding to one side.","explBn":"মোটরসাইকেল চালকরা অন্য যেকোনো যানবাহনের মতোই একটি সম্পূর্ণ লেনের অধিকারী। মোটরসাইকেল চালক একপাশে চললেও কখনো তার পাশাপাশি লেন ভাগ করবেন না।"},{"correct":1,"explEn":"Leave at least 3 feet of space when passing a bicyclist, and be ready to briefly cross the centerline if it's safe to do so and required to keep that distance.","explBn":"সাইকেল আরোহীকে ওভারটেক করার সময় অন্তত ৩ ফুট জায়গা রাখুন, এবং সেই দূরত্ব বজায় রাখতে প্রয়োজন হলে নিরাপদ হলে সংক্ষিপ্তভাবে কেন্দ্র রেখা অতিক্রম করার জন্য প্রস্তুত থাকুন।"},{"correct":1,"explEn":"ADAS features assist you, but they have real limitations — sensors can be dirty, lane markings can be faded, and the systems can't detect everything. You must still stay attentive and responsible for safe driving.","explBn":"ADAS বৈশিষ্ট্যগুলো আপনাকে সহায়তা করে, তবে এগুলোর প্রকৃত সীমাবদ্ধতা রয়েছে — সেন্সর নোংরা হতে পারে, লেনের চিহ্ন বিবর্ণ হতে পারে, এবং সিস্টেমগুলো সবকিছু শনাক্ত করতে পারে না। নিরাপদ গাড়ি চালানোর জন্য আপনাকে এখনও মনোযোগী ও দায়িত্বশীল থাকতে হবে।"}];
+function checkExam() {
+  const total = EXAM_DATA.length;
+  const unanswered = [];
+  for (let i = 0; i < total; i++) {
+    if (!document.querySelector('input[name="exam-q' + i + '"]:checked')) unanswered.push(i + 1);
+  }
+  const isBn = document.documentElement.lang === 'bn';
+  if (unanswered.length) {
+    alert(isBn ? ('অনুগ্রহ করে সব প্রশ্নের উত্তর দিন। বাকি আছে প্রশ্ন: ' + unanswered.join(', ')) : ('Please answer all questions first. Missing question(s): ' + unanswered.join(', ')));
+    const firstMissing = document.querySelector('.exam-question[data-idx="' + (unanswered[0] - 1) + '"]');
+    if (firstMissing) firstMissing.scrollIntoView({behavior: 'smooth', block: 'center'});
+    return;
+  }
+  let score = 0;
+  for (let i = 0; i < total; i++) {
+    const q = EXAM_DATA[i];
+    const selected = document.querySelector('input[name="exam-q' + i + '"]:checked');
+    const selectedIdx = parseInt(selected.value, 10);
+    const isCorrect = selectedIdx === q.correct;
+    if (isCorrect) score++;
+    const fieldset = document.querySelector('.exam-question[data-idx="' + i + '"]');
+    const options = fieldset.querySelectorAll('.quiz-option');
+    options.forEach((opt, idx) => {
+      opt.classList.add('disabled');
+      opt.classList.remove('correct', 'incorrect');
+      if (idx === q.correct) opt.classList.add('correct');
+      else if (idx === selectedIdx) opt.classList.add('incorrect');
+    });
+    const feedback = document.getElementById('exam-feedback-' + i);
+    feedback.classList.add('show');
+    feedback.innerHTML = (isCorrect ? '\u2705 ' : '\u274c ') + (isBn ? q.explBn : q.explEn);
+  }
+  const pct = Math.round((score / total) * 100);
+  const passed = pct >= 80;
+  const resultEl = document.getElementById('exam-result');
+  resultEl.classList.add('show');
+  resultEl.innerHTML = isBn
+    ? ('আপনার স্কোর: ' + score + '/' + total + ' (' + pct + '%) \u2014 ' + (passed ? 'পাস! \u2705 (WA পরীক্ষায় সাধারণত ৮০% প্রয়োজন)' : 'রিভিউ প্রয়োজন। WA পরীক্ষায় পাস করতে সাধারণত ৮০% প্রয়োজন।'))
+    : ('Your score: ' + score + '/' + total + ' (' + pct + '%) \u2014 ' + (passed ? 'Passing! \u2705 (the WA exam typically requires 80%)' : 'Needs review \u2014 the WA exam typically requires 80% to pass.'));
+  resultEl.scrollIntoView({behavior: 'smooth', block: 'center'});
+}
+function resetExam() {
+  document.querySelectorAll('input[name^="exam-q"]').forEach(function(i) { i.checked = false; });
+  document.querySelectorAll('.exam-question .quiz-option').forEach(function(opt) { opt.classList.remove('correct', 'incorrect', 'disabled'); });
+  document.querySelectorAll('.exam-feedback').forEach(function(f) { f.classList.remove('show'); f.innerHTML = ''; });
+  const resultEl = document.getElementById('exam-result');
+  resultEl.classList.remove('show');
+  resultEl.innerHTML = '';
+  const sec = document.getElementById('practice-exam');
+  if (sec) sec.scrollIntoView({behavior: 'smooth', block: 'start'});
+}
+</script>
 </body>
 </html>
