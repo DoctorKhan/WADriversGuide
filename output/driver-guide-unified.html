@@ -115,7 +115,62 @@ table.comparison caption { text-align: left; font-weight: 700; margin-bottom: 6p
 table.comparison th, table.comparison td { border: 1px solid #bbb; padding: 8px; vertical-align: top; text-align: left; }
 table.comparison th { background: #eef4fb; }
 @media (max-width: 600px) { table.comparison { display: block; overflow-x: auto; white-space: normal; } }
-@media print { @page { margin: 14mm; } body { max-width: none; padding: 0; background: #fff; } .lang-toggle { display: none !important; } .toc { break-after: page; } section { break-inside: avoid; box-shadow: none; } figure.source-art { break-inside: avoid; } a { color: inherit; text-decoration: none; } }
+@media print { @page { margin: 14mm; } body { max-width: none; padding: 0; background: #fff; } .lang-toggle { display: none !important; } .toc { break-after: page; } section { break-inside: avoid; box-shadow: none; } figure.source-art { break-inside: avoid; } a { color: inherit; text-decoration: none; } .mobile-header, .toc-toggle { display: none !important; } }
+
+.mobile-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: #003087;
+  color: #fff;
+  padding: 10px 12px;
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+.mobile-header .mobile-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+.mobile-header .lang-toggle {
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.4);
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.mobile-header .lang-toggle:active { background: rgba(255,255,255,0.3); }
+.toc-toggle {
+  display: none;
+  width: 100%;
+  padding: 10px 14px;
+  background: #003087;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+.toc-toggle[aria-expanded="false"] .toc-toggle-icon { transform: rotate(-90deg); }
+.toc-toggle-icon { transition: transform 0.2s ease; font-size: 0.75rem; }
+.toc-list.collapsed { display: none; }
+@media (max-width: 720px) {
+  .mobile-header { display: flex; }
+  .toc-toggle { display: inline-flex; }
+  body { padding-top: 52px; }
+}
 section h3 { margin-top: 24px; margin-bottom: 8px; color: #005a9e; font-size: 1.05rem; line-height: 1.35; }
 section h3:first-child { margin-top: 0; }
 @media print { section h3 { break-after: avoid; } }
@@ -279,7 +334,11 @@ legend.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin
 </style>
 </head>
 <body class="bn-mode" onload="loadProgress()">
-<button class="lang-toggle" onclick="toggleLang()">English</button>
+<div class="mobile-header" aria-label="Quick controls">
+  <span class="mobile-title en-text">WA Driver Guide</span>
+  <span class="mobile-title bn-text">WA ড্রাইভার গাইড</span>
+  <button class="lang-toggle" onclick="toggleLang()">English</button>
+</div>
 <h1 class="en-text">Washington Driver Guide</h1>
 <h1 class="bn-text">ওয়াশিংটন ড্রাইভার গাইড</h1>
 <p class="en-text">Official Driver Guide</p>
@@ -288,6 +347,12 @@ legend.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin
   <span class="exam-callout-text"><span class="en-text">📝 Ready to test yourself? Try the full 47-question practice exam.</span><span class="bn-text">📝 নিজেকে পরীক্ষা করতে প্রস্তুত? সম্পূর্ণ ৪৭-প্রশ্নের অনুশীলন পরীক্ষাটি চেষ্টা করুন।</span></span>
   <a class="exam-callout-btn" href="#practice-exam"><span class="en-text">Take the practice exam →</span><span class="bn-text">অনুশীলন পরীক্ষা দিন →</span></a>
 </div>
+<button class="toc-toggle" onclick="toggleToc()" aria-expanded="true">
+  <span class="en-text">Table of Contents</span>
+  <span class="bn-text">সূচীপত্র</span>
+  <span class="toc-toggle-icon" aria-hidden="true">▼</span>
+</button>
+<div class="toc-list">
 <div class="toc">
 <h2 class="en-text">Table of Contents</h2>
 <h2 class="bn-text">সূচীপত্র</h2>
@@ -433,6 +498,7 @@ legend.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin
 <a href="#sec71" class="bn-text">5.9  |  যৌঘর্ট</a>
 <a href="#sec72" class="en-text">5.10  |  LAW ENFORCEMENT</a>
 <a href="#sec72" class="bn-text">5.10  |  আইন প্রয়োগ</a>
+</div>
 </div>
 
 <section class="notice" id="lang-access-notice">
@@ -4591,6 +4657,13 @@ function resetExam() {
   resultEl.innerHTML = '';
   const sec = document.getElementById('practice-exam');
   if (sec) sec.scrollIntoView({behavior: 'smooth', block: 'start'});
+}
+function toggleToc() {
+  var list = document.querySelector('.toc-list');
+  if (!list) return;
+  var collapsed = list.classList.toggle('collapsed');
+  var btn = document.querySelector('.toc-toggle');
+  if (btn) btn.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
 }
 </script>
 <section class="study-progress" id="study-progress">
