@@ -25,6 +25,10 @@ function fail(label, detail) {
   console.log(`  \x1b[31m✗ ${label}\x1b[0m${detail ? '\n      ' + detail : ''}`);
 }
 
+const html_en = fs.readFileSync('output/driver-guide-english.html', 'utf8');
+const html_bn = fs.readFileSync('output/driver-guide-bengali.html', 'utf8');
+const html_uni = fs.readFileSync('output/driver-guide-unified.html', 'utf8');
+
 for (const file of files) {
   console.log(`\n${file}`);
   if (!fs.existsSync(file)) { fail('file exists'); continue; }
@@ -132,6 +136,87 @@ for (const file of files) {
   // 7. No leaked local file paths (a print-to-pdf / dev artifact check).
   if (!/file:\/\/|\/Users\/[a-z]+\//.test(html)) ok('no leaked local file paths');
   else fail('no leaked local file paths');
+}
+
+// 8. Cross-edition parity: heading structure must match across all three files.
+{
+  const strip = s => s.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+  const h3sOf = (html, re) => {
+    const out = {};
+    for (const m of html.matchAll(/<section id="(sec\d+)">([\s\S]*?)<\/section>/g)) {
+      out[m[1]] = [...m[2].matchAll(re)].map(x => strip(x[1]));
+    }
+    return out;
+  };
+  const enH3 = h3sOf(html_en, /<h3>([\s\S]*?)<\/h3>/g);
+  const bnH3 = h3sOf(html_bn, /<h3>([\s\S]*?)<\/h3>/g);
+  const uniH3 = h3sOf(html_uni, /<h3 class="en-text">([\s\S]*?)<\/h3>/g);
+  let parityOk = true;
+  for (const sid of Object.keys(enH3)) {
+    const e = enH3[sid].length;
+    const b = (bnH3[sid] || []).length;
+    const u = (uniH3[sid] || []).length;
+    if (e !== b || e !== u) {
+      parityOk = false;
+      fail(`h3 parity ${sid}`, `english=${e} bengali=${b} unified=${u}`);
+    }
+  }
+  if (parityOk) ok(`h3 counts match across all 3 editions (${Object.keys(enH3).length} sections)`);
+
+  // h2 parity: compare the h2 of each numbered content section (sec0..secN).
+  const secH2 = (html, h2re) => {
+    const out = {};
+    for (const m of html.matchAll(/<section id="(sec\d+)">([\s\S]*?)<\/section>/g)) {
+      if (m[2].includes('class="quiz"')) continue;
+      const h = m[2].match(h2re);
+      if (h) out[m[1]] = h[1].replace(/<[^>]+>/g, '').trim();
+    }
+    return out;
+  };
+  const sh2_en = secH2(html_en, /<h2[^>]*>([\s\S]*?)<\/h2>/);
+  const sh2_bn = secH2(html_bn, /<h2[^>]*>([\s\S]*?)<\/h2>/);
+  const sh2_uni = secH2(html_uni, /<h2 class="en-text">([\s\S]*?)<\/h2>/);
+  const missingBn = Object.keys(sh2_en).filter(s => !sh2_bn[s]);
+  const missingUni = Object.keys(sh2_en).filter(s => !sh2_uni[s]);
+  if (!missingBn.length && !missingUni.length) ok(`section h2 parity across editions (${Object.keys(sh2_en).length} sections)`);
+  else fail('section h2 parity across editions', `bn missing: ${missingBn} | unified missing: ${missingUni}`);
+
+  // TOC anchor coverage: every section id must appear in the TOC
+  for (const [name, html] of [['english', html_en], ['bengali', html_bn], ['unified', html_uni]]) {
+    const secs = new Set([...html.matchAll(/<section id="(sec\d+)"/g)].map(m => m[1]));
+    const toc = new Set([...html.matchAll(/href="#(sec\d+)"/g)].map(m => m[1]));
+    const missing = [...secs].filter(s => !toc.has(s) && s !== 'sec0');
+    if (!missing.length) ok(`${name}: TOC covers all sections`);
+    else fail(`${name}: TOC covers all sections`, missing.join(', '));
+  }
+
+  // Bengali edition: no visible English left in mini-quiz legends/labels
+  const bnBody = html_bn.replace(/<script[\s\S]*?<\/script>/g, '').replace(/<style[\s\S]*?<\/style>/g, '');
+  const visible = bnBody.replace(/<span class="en-text">[\s\S]*?<\/span>/g, '').replace(/<[^>]+class="en-text"[^>]*>[\s\S]*?<\/[^>]+>/g, '');
+  const quizZone = visible.match(/id="quiz-sec1"[\s\S]*?id="practice-exam"/);
+  if (quizZone) {
+    const englishLeft = [...quizZone[0].matchAll(/>([A-Z][A-Za-z ,'\?]{25,})</g)].map(m => m[1]);
+    if (!englishLeft.length) ok('bengali: no visible English in mini-quiz zone');
+    else fail('bengali: no visible English in mini-quiz zone', englishLeft.slice(0, 5).join(' | '));
+  }
+
+  // unified: every en-text h2/h3 has a bn-text sibling (quiz/exam h2s wrap
+  // both languages inside a single h2, so count only bare-pair headings)
+  const enHeads = (html_uni.match(/<h[23] class="en-text">/g) || []).length;
+  const bnHeads = (html_uni.match(/<h[23] class="bn-text">/g) || []).length;
+  if (Math.abs(enHeads - bnHeads) <= 1) ok(`unified: en/bn heading pairs balanced (en=${enHeads} bn=${bnHeads})`);
+  else fail('unified: en/bn heading pairs balanced', `en=${enHeads} bn=${bnHeads}`);
+}
+
+// 9. output/ and docs/ must not drift apart.
+{
+  for (const f of ['english', 'bengali', 'unified']) {
+    const a = `output/driver-guide-${f}.html`;
+    const b = `docs/driver-guide-${f}.html`;
+    if (!fs.existsSync(b)) { fail(`docs/${f} exists`); continue; }
+    if (fs.readFileSync(a, 'utf8') === fs.readFileSync(b, 'utf8')) ok(`docs/${f}.html in sync with output/`);
+    else fail(`docs/${f}.html in sync with output/`, 'copies differ — republish from output/ to docs/');
+  }
 }
 
 console.log(`\n${failures === 0 ? '\x1b[32mAll checks passed.' : `\x1b[31m${failures} check(s) failed.`}\x1b[0m`);
